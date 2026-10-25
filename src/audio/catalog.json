@@ -1,0 +1,642 @@
+{
+  "0": {
+    "name": "Acoustic Grand Piano",
+    "minMidi": 36,
+    "maxMidi": 96
+  },
+  "1": {
+    "name": "Bright Piano",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "2": {
+    "name": "Electric Grand Piano",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "3": {
+    "name": "Honky Tonk Piano",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "4": {
+    "name": "Electric Piano 1",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "5": {
+    "name": "Electric Piano 2",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "6": {
+    "name": "Harpsichord",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "7": {
+    "name": "Clavinet",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "8": {
+    "name": "Celesta",
+    "minMidi": 48,
+    "maxMidi": 96
+  },
+  "9": {
+    "name": "Glockenspiel",
+    "minMidi": 48,
+    "maxMidi": 96
+  },
+  "10": {
+    "name": "Music Box",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "11": {
+    "name": "Vibraphone",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "12": {
+    "name": "Marimba",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "13": {
+    "name": "Xylophone",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "14": {
+    "name": "Tubular Bells",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "15": {
+    "name": "Dulcimer",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "16": {
+    "name": "Drawbar Organ",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "17": {
+    "name": "Percussive Organ",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "18": {
+    "name": "Rock Organ",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "19": {
+    "name": "Church Organ",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "20": {
+    "name": "Reed Organ",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "21": {
+    "name": "Accordion",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "22": {
+    "name": "Harmonica",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "23": {
+    "name": "Tango Accordion",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "24": {
+    "name": "Nylon Guitar",
+    "minMidi": 36,
+    "maxMidi": 84
+  },
+  "25": {
+    "name": "Steel Guitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "26": {
+    "name": "Jazz Guitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "27": {
+    "name": "Clean Guitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "28": {
+    "name": "Muted Guitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "29": {
+    "name": "Overdriven Guitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "30": {
+    "name": "Distortion Guitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "31": {
+    "name": "Guitar Harmonics",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "32": {
+    "name": "Acoustic Bass",
+    "minMidi": 36,
+    "maxMidi": 67
+  },
+  "33": {
+    "name": "Finger Bass",
+    "minMidi": 36,
+    "maxMidi": 67
+  },
+  "34": {
+    "name": "Pick Bass",
+    "minMidi": 36,
+    "maxMidi": 67
+  },
+  "35": {
+    "name": "Fretless Bass",
+    "minMidi": 36,
+    "maxMidi": 67
+  },
+  "36": {
+    "name": "Slap Bass 1",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "37": {
+    "name": "Slap Bass 2",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "38": {
+    "name": "Synth Bass 1",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "39": {
+    "name": "Synth Bass 2",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "40": {
+    "name": "Violin",
+    "minMidi": 55,
+    "maxMidi": 84
+  },
+  "41": {
+    "name": "Viola",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "42": {
+    "name": "Cello",
+    "minMidi": 36,
+    "maxMidi": 79
+  },
+  "43": {
+    "name": "Contrabass",
+    "minMidi": 36,
+    "maxMidi": 67
+  },
+  "44": {
+    "name": "Tremolo Strings",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "45": {
+    "name": "Pizzicato Strings",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "46": {
+    "name": "Harp",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "47": {
+    "name": "Timpani",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "48": {
+    "name": "Strings 1",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "49": {
+    "name": "Strings 2",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "50": {
+    "name": "Synth Strings 1",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "51": {
+    "name": "Synth Strings 2",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "52": {
+    "name": "Choir Aahs",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "53": {
+    "name": "Voice Oohs",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "54": {
+    "name": "Synth Voice",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "55": {
+    "name": "Orchestra Hit",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "56": {
+    "name": "Trumpet",
+    "minMidi": 54,
+    "maxMidi": 84
+  },
+  "57": {
+    "name": "Trombone",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "58": {
+    "name": "Tuba",
+    "minMidi": 36,
+    "maxMidi": 67
+  },
+  "59": {
+    "name": "Muted Trumpet",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "60": {
+    "name": "French Horn",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "61": {
+    "name": "Brass Section",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "62": {
+    "name": "Synth Brass 1",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "63": {
+    "name": "Synth Brass 2",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "64": {
+    "name": "Soprano Sax",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "65": {
+    "name": "Alto Sax",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "66": {
+    "name": "Tenor Sax",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "67": {
+    "name": "Baritone Sax",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "68": {
+    "name": "Oboe",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "69": {
+    "name": "English Horn",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "70": {
+    "name": "Bassoon",
+    "minMidi": 36,
+    "maxMidi": 79
+  },
+  "71": {
+    "name": "Clarinet",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "72": {
+    "name": "Piccolo",
+    "minMidi": 72,
+    "maxMidi": 96
+  },
+  "73": {
+    "name": "Flute",
+    "minMidi": 60,
+    "maxMidi": 96
+  },
+  "74": {
+    "name": "Recorder",
+    "minMidi": 60,
+    "maxMidi": 96
+  },
+  "75": {
+    "name": "Pan Flute",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "76": {
+    "name": "Blown Bottle",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "77": {
+    "name": "Shakuhachi",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "78": {
+    "name": "Whistle",
+    "minMidi": 48,
+    "maxMidi": 96
+  },
+  "79": {
+    "name": "Ocarina",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "80": {
+    "name": "Square Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "81": {
+    "name": "Saw Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "82": {
+    "name": "Calliope Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "83": {
+    "name": "Chiff Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "84": {
+    "name": "Charang Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "85": {
+    "name": "Voice Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "86": {
+    "name": "Fifths Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "87": {
+    "name": "Bass Lead",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "88": {
+    "name": "New Age Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "89": {
+    "name": "Warm Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "90": {
+    "name": "Polysynth Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "91": {
+    "name": "Choir Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "92": {
+    "name": "Bowed Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "93": {
+    "name": "Metallic Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "94": {
+    "name": "Halo Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "95": {
+    "name": "Sweep Pad",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "96": {
+    "name": "Rain FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "97": {
+    "name": "Soundtrack FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "98": {
+    "name": "Crystal FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "99": {
+    "name": "Atmosphere FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "100": {
+    "name": "Brightness FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "101": {
+    "name": "Goblins FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "102": {
+    "name": "Echoes FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "103": {
+    "name": "Sci Fi FX",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "104": {
+    "name": "Sitar",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "105": {
+    "name": "Banjo",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "106": {
+    "name": "Shamisen",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "107": {
+    "name": "Koto",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "108": {
+    "name": "Kalimba",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "109": {
+    "name": "Bagpipe",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "110": {
+    "name": "Fiddle",
+    "minMidi": 55,
+    "maxMidi": 84
+  },
+  "111": {
+    "name": "Shanai",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "112": {
+    "name": "Tinkle Bell",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "113": {
+    "name": "Agogo",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "114": {
+    "name": "Steel Drums",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "115": {
+    "name": "Woodblock",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "116": {
+    "name": "Taiko Drum",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "117": {
+    "name": "Melodic Tom",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "118": {
+    "name": "Synth Drum",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "119": {
+    "name": "Reverse Cymbal",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "120": {
+    "name": "Guitar Fret Noise",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "121": {
+    "name": "Breath Noise",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "122": {
+    "name": "Seashore",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "123": {
+    "name": "Bird Tweet",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "124": {
+    "name": "Telephone",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "125": {
+    "name": "Helicopter",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "126": {
+    "name": "Applause",
+    "minMidi": 48,
+    "maxMidi": 84
+  },
+  "127": {
+    "name": "Gunshot",
+    "minMidi": 48,
+    "maxMidi": 84
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "assets": 4760,
+  "bytes": 48290798,
+  "decodedAll": true,
+  "pitchChecks": [
+    {
+      "program": 0,
+      "midi": 48,
+      "centsError": -1.0
+    },
+    {
+      "program": 0,
+      "midi": 60,
+      "centsError": -2.62
+    },
+    {
+      "program": 0,
+      "midi": 69,
+      "centsError": -1.19
+    },
+    {
+      "program": 0,
+      "midi": 72,
+      "centsError": -1.0
+    },
+    {
+      "program": 0,
+      "midi": 84,
+      "centsError": 2.03
+    },
+    {
+      "program": 24,
+      "midi": 48,
+      "centsError": 3.84
+    },
+    {
+      "program": 24,
+      "midi": 60,
+      "centsError": -2.62
+    },
+    {
+      "program": 24,
+      "midi": 69,
+      "centsError": -0.23
+    },
+    {
+      "program": 24,
+      "midi": 72,
+      "centsError": -1.4
+    },
+    {
+      "program": 24,
+      "midi": 84,
+      "centsError": -1.61
+    },
+    {
+      "program": 73,
+      "midi": 60,
+      "centsError": 8.67
+    },
+    {
+      "program": 73,
+      "midi": 69,
+      "centsError": 0.73
+    },
+    {
+      "program": 73,
+      "midi": 72,
+      "centsError": 6.66
+    },
+    {
+      "program": 73,
+      "midi": 84,
+      "centsError": 15.09
+    }
+  ],
+  "errors": []
+}
