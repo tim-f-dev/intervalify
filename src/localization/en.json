@@ -1,14 +1,177 @@
 {
-  "language": { "label": "Language", "change": "Switch to {{language}}", "saveError": "Your language changed, but the preference could not be saved. Please retry.", "loadError": "Your saved language could not be read. The device language is being used.", "retry": "Retry" },
-  "nav": { "home": "← Home", "map": "Level map", "mapBack": "← Level map", "back": "← Back", "restart": "↻ Restart level", "restartLabel": "Restart level" },
-  "common": { "loading": "Loading…", "opening": "Opening Intervalify…", "locked": "Locked", "levelTitle": "Level {{id}} · {{title}}", "starCount_one": "{{count}} star", "starCount_other": "{{count}} stars", "starRating": "{{stars}} out of {{max}}", "best": "Best: {{score}}/10", "chapter": "Chapter {{id}}", "levelLabel": "Level {{id}}, {{title}}, {{status}}" },
-  "home": { "eyebrow": "An ear for the everyday", "totalStars": "{{count}} / 300 stars", "tagline": "Two notes. A little attention.\nA whole new way to listen.", "chapter": "Chapter {{id}} of 5", "instructions": "Listen to two notes, then choose their interval. Replay as often as you like—there is no timer.", "play": "Play level {{id}} →", "explore": "Explore all 100 levels", "questions": "10 questions per level", "thresholds": "★ {{one}} correct · ★★ {{two}} · ★★★ {{three}}", "volume": "Use a comfortable volume. Headphones can help you hear close intervals.", "credits": "Sounds & credits" },
-  "map": { "eyebrow": "Your listening journey", "title": "One interval at a time.", "instructions": "Earn one star to open the next level. Collect {{required}} stars in a chapter to open the next chapter.", "chapterProgress": "Chapter {{id}} · {{count}} / 60 stars", "chapterLocked": "Locked · Earn {{required}} stars in Chapter {{previous}} ({{earned}}/{{required}})." },
-  "chapters": { "1": "First steps", "2": "Find your ear", "3": "Listen deeper", "4": "Trust the distance", "5": "Full spectrum" },
-  "exercise": { "unavailable": "This level is not available yet.", "question": "Level {{level}} · Question {{question}} / {{total}}", "prompt": "What interval do you hear?", "choose": "Choose an answer whenever you’re ready.", "correct": "Correct! {{interval}}.", "incorrect": "Not quite. {{interval}}.", "next": "Next question →", "results": "See results →", "listening": "Listening…", "replay": "↻ Replay interval", "harmonic": "Two notes together", "ascending": "Ascending notes", "descending": "Descending notes", "tracker": "Question {{number}}: {{status}}", "status": { "unanswered": "unanswered", "correct": "correct", "incorrect": "incorrect" } },
-  "intervals": { "0": "Perfect unison", "1": "Minor second", "2": "Major second", "3": "Minor third", "4": "Major third", "5": "Perfect fourth", "6": "Tritone", "7": "Perfect fifth", "8": "Minor sixth", "9": "Major sixth", "10": "Minor seventh", "11": "Major seventh", "12": "Perfect octave", "17": "Perfect eleventh", "19": "Perfect twelfth", "24": "Perfect double octave", "fallback_one": "{{count}}-semitone interval", "fallback_other": "{{count}}-semitone interval" },
-  "results": { "empty": "Choose a level to begin.", "perfect": "Perfect listening.", "good": "Nicely heard.", "practice": "Every listen helps.", "score": "{{score}} / 10 correct", "needStar": "Reach {{required}} correct answers to earn a star and open the next level.", "bestKept": "Your highest score and stars are kept when you replay.", "previous": "Previous best: {{score}}/10 · {{stars}}", "best": "Best now: {{score}}/10 · {{stars}}", "saving": "Saving progress…", "notSaved": "Progress has not been saved yet.", "saved": "Progress stored locally on this device.", "unlocked": "Chapter {{id}} unlocked!", "unlockMessage": "Your stars have opened another part of the journey.", "finish": "You reached the end of all 100 levels. Revisit the map to improve your stars.", "retry": "Retry level {{id}}", "map": "Back to the level map" },
-  "errors": { "progressTitle": "Your progress needs attention", "progressLoad": "Unable to read saved progress. Your existing data has not been overwritten. Please try loading again.", "progressSave": "Progress is in memory but could not be saved. Retry before closing the app.", "retryLoad": "Retry loading progress", "retrySave": "Retry saving", "audioPlayback": "Sound could not play. Check your volume and tap Replay to try again." },
-  "offline": { "ready": "Ready to play offline.", "preparing": "Preparing offline audio. Keep this tab open until it’s ready.", "failed": "Offline audio could not be saved. Free browser storage and reload to retry." },
-  "credits": { "description": "128 General MIDI programs, rendered from the officially distributed MS Basic SoundFont with FluidSynth. Instrument samples are bundled for offline playback. Some GM programs are sound effects, so interval lessons use pitched instruments only.", "originalNotice": "Original license and attribution notice (preserved in English):" }
+  "language": {
+    "label": "Language",
+    "change": "Switch to {{language}}",
+    "saveError": "Your language changed, but the preference could not be saved. Please retry.",
+    "loadError": "Your saved language could not be read. The device language is being used.",
+    "retry": "Retry"
+  },
+  "nav": {
+    "home": "← Home",
+    "map": "Level map",
+    "mapBack": "← Level map",
+    "back": "← Back",
+    "restart": "↻ Restart level",
+    "restartLabel": "Restart level"
+  },
+  "common": {
+    "loading": "Loading…",
+    "opening": "Opening Intervalify…",
+    "locked": "Locked",
+    "levelTitle": "Level {{id}} · {{title}}",
+    "starCount_one": "{{count}} star",
+    "starCount_other": "{{count}} stars",
+    "starRating": "{{stars}} out of {{max}}",
+    "best": "Best: {{score}}/10",
+    "chapter": "Chapter {{id}}",
+    "levelLabel": "Level {{id}}, {{title}}, {{status}}"
+  },
+  "home": {
+    "eyebrow": "An ear for the everyday",
+    "totalStars": "{{count}} / 300 stars",
+    "tagline": "Two notes. A little attention.\nA whole new way to listen.",
+    "chapter": "Chapter {{id}} of 5",
+    "instructions": "Listen to two notes, then choose their interval. Replay as often as you like—there is no timer.",
+    "play": "Play level {{id}} →",
+    "explore": "Explore all 100 levels",
+    "questions": "10 questions per level",
+    "thresholds": "★ {{one}} correct · ★★ {{two}} · ★★★ {{three}}",
+    "volume": "Use a comfortable volume. Headphones can help you hear close intervals.",
+    "credits": "Sounds & credits"
+  },
+  "map": {
+    "eyebrow": "Your listening journey",
+    "title": "One interval at a time.",
+    "instructions": "Earn one star to open the next level. Collect {{required}} stars in a chapter to open the next chapter.",
+    "chapterProgress": "Chapter {{id}} · {{count}} / 60 stars",
+    "chapterLocked": "Locked · Earn {{required}} stars in Chapter {{previous}} ({{earned}}/{{required}})."
+  },
+  "chapters": {
+    "1": "First steps",
+    "2": "Find your ear",
+    "3": "Listen deeper",
+    "4": "Trust the distance",
+    "5": "Full spectrum"
+  },
+  "exercise": {
+    "unavailable": "This level is not available yet.",
+    "question": "Level {{level}} · Question {{question}} / {{total}}",
+    "prompt": "What interval do you hear?",
+    "choose": "Choose an answer whenever you’re ready.",
+    "correct": "Correct! {{interval}}.",
+    "incorrect": "Not quite. {{interval}}.",
+    "next": "Next question →",
+    "results": "See results →",
+    "listening": "Listening…",
+    "replay": "↻ Replay interval",
+    "harmonic": "Two notes together",
+    "ascending": "Ascending notes",
+    "descending": "Descending notes",
+    "tracker": "Question {{number}}: {{status}}",
+    "status": {
+      "unanswered": "unanswered",
+      "correct": "correct",
+      "incorrect": "incorrect"
+    }
+  },
+  "intervals": {
+    "0": "Perfect unison",
+    "1": "Minor second",
+    "2": "Major second",
+    "3": "Minor third",
+    "4": "Major third",
+    "5": "Perfect fourth",
+    "6": "Tritone",
+    "7": "Perfect fifth",
+    "8": "Minor sixth",
+    "9": "Major sixth",
+    "10": "Minor seventh",
+    "11": "Major seventh",
+    "12": "Perfect octave",
+    "17": "Perfect eleventh",
+    "19": "Perfect twelfth",
+    "24": "Perfect double octave",
+    "fallback_one": "{{count}}-semitone interval",
+    "fallback_other": "{{count}}-semitone interval"
+  },
+  "results": {
+    "empty": "Choose a level to begin.",
+    "perfect": "Perfect listening.",
+    "good": "Nicely heard.",
+    "practice": "Every listen helps.",
+    "score": "{{score}} / 10 correct",
+    "needStar": "Reach {{required}} correct answers to earn a star and open the next level.",
+    "bestKept": "Your highest score and stars are kept when you replay.",
+    "previous": "Previous best: {{score}}/10 · {{stars}}",
+    "best": "Best now: {{score}}/10 · {{stars}}",
+    "saving": "Saving progress…",
+    "notSaved": "Progress has not been saved yet.",
+    "saved": "Progress stored locally on this device.",
+    "unlocked": "Chapter {{id}} unlocked!",
+    "unlockMessage": "Your stars have opened another part of the journey.",
+    "finish": "You reached the end of all 100 levels. Revisit the map to improve your stars.",
+    "retry": "Retry level {{id}}",
+    "map": "Back to the level map"
+  },
+  "errors": {
+    "progressTitle": "Your progress needs attention",
+    "progressLoad": "Unable to read saved progress. Your existing data has not been overwritten. Please try loading again.",
+    "progressSave": "Progress is in memory but could not be saved. Retry before closing the app.",
+    "retryLoad": "Retry loading progress",
+    "retrySave": "Retry saving",
+    "audioPlayback": "Sound could not play. Check your volume and tap Replay to try again."
+  },
+  "offline": {
+    "ready": "Ready to play offline.",
+    "preparing": "Preparing offline audio. Keep this tab open until it’s ready.",
+    "failed": "Offline audio could not be saved. Free browser storage and reload to retry."
+  },
+  "credits": {
+    "description": "128 General MIDI programs, rendered from the officially distributed MS Basic SoundFont with FluidSynth. Instrument samples are bundled for offline playback. Some GM programs are sound effects, so interval lessons use pitched instruments only.",
+    "originalNotice": "Original license and attribution notice (preserved in English):"
+  },
+  "legalPages": {
+    "updated": "Last updated: 26 October 2026",
+    "responsible": "Operator and data controller",
+    "country": "Germany"
+  },
+  "legal": {
+    "title": "Legal notice",
+    "operator": {
+      "title": "Service provider",
+      "body": "Intervalify is operated by Tim Fischer at the address shown above."
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "For questions about Intervalify or its content, please use the email address above."
+    },
+    "content": {
+      "title": "About this service",
+      "body": "Intervalify is an interval ear-training application. Information about the bundled sounds and their licenses is available on the Sounds & credits page."
+    }
+  },
+  "privacy": {
+    "title": "Privacy",
+    "overview": {
+      "title": "Overview",
+      "body": "Intervalify works without an account. The application does not include advertising, analytics, tracking pixels or a cloud database. Your answers are processed on your device. Scores and language preferences are not sent to the operator by the application. Visiting the hosted website still involves technical data processing by the hosting provider, as described below."
+    },
+    "storage": {
+      "title": "Progress, language and offline storage",
+      "body": "Intervalify stores your best scores, stars and unlocked levels locally under intervalify.progress.v1. Your language preference is stored separately under intervalify.language.v1. The device or browser language is read to select the initial interface language. On the web, a service worker also caches application files and audio for offline use. These functions provide the game, remember your settings and enable offline playback; their legal basis is Article 6(1)(b) GDPR. Access to device storage for these requested functions is based on Section 25(2)(2) TDDDG. No advertising or analytics cookies are set by the application. Local records remain until you clear the app or website data, uninstall the app, or the browser removes them. Clearing this data also deletes your saved progress. There is no cloud backup."
+    },
+    "hosting": {
+      "title": "Website hosting with Cloudflare",
+      "body": "The web version is intended to be hosted through Cloudflare Pages, provided by Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. When you access the website, Cloudflare processes technical request data such as your IP address, requested URL, access time and browser/device information to deliver and protect the site. The legal basis is Article 6(1)(f) GDPR: the legitimate interest in secure and reliable delivery. Processing may take place outside the EU/EEA, including in the USA. Cloudflare describes international-transfer safeguards and its processing in the privacy policy linked below. Technical data retention depends on the hosting/security configuration and applicable Cloudflare terms; it is separate from your locally stored game progress.",
+      "link": "Cloudflare privacy policy"
+    },
+    "contact": {
+      "title": "Email enquiries",
+      "body": "If you contact the operator by email, your email address, message and any details you include are processed to answer your enquiry. The legal basis is Article 6(1)(b) GDPR for enquiries concerning a contract or Article 6(1)(f) GDPR for other enquiries, based on the interest in responding to correspondence. Messages are kept only as long as needed to handle the enquiry, subject to any statutory retention obligations."
+    },
+    "rights": {
+      "title": "Your rights",
+      "body": "Where the legal requirements are met, you have rights of access, rectification, erasure, restriction of processing and data portability. You may object to processing based on legitimate interests under Article 21 GDPR and withdraw any consent for future processing. Contact the operator using the details above. You may also complain to a data protection supervisory authority, including the State Commissioner for Data Protection and Freedom of Information of Rhineland-Palatinate. Local game data can be deleted directly through your device or browser settings; the operator cannot retrieve it remotely."
+    }
+  }
 }

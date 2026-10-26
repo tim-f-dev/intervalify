@@ -1,15 +1,177 @@
 {
-  "language": { "label": "Sprache", "change": "Zu {{language}} wechseln", "saveError": "Die Sprache wurde geändert, aber die Auswahl konnte nicht gespeichert werden. Bitte versuche es erneut.", "loadError": "Deine gespeicherte Sprache konnte nicht geladen werden. Es wird die Gerätesprache verwendet.", "retry": "Erneut versuchen" },
-  "nav": { "home": "← Startseite", "map": "Levelübersicht", "mapBack": "← Übersicht", "back": "← Zurück", "restart": "↻ Neu starten", "restartLabel": "Level neu starten" },
-  "common": { "loading": "Wird geladen…", "opening": "Intervalify wird geöffnet…", "locked": "Gesperrt", "levelTitle": "Level {{id}} · {{title}}", "starCount_one": "{{count}} Stern", "starCount_other": "{{count}} Sterne", "starRating": "{{stars}} von {{max}}", "best": "Bestleistung: {{score}}/10", "chapter": "Kapitel {{id}}", "levelLabel": "Level {{id}}, {{title}}, {{status}}" },
-  "home": { "eyebrow": "Mit offenen Ohren durchs Leben", "totalStars": "{{count}} / 300 Sterne", "tagline": "Zwei Töne. Ein Moment Aufmerksamkeit.\nEine neue Art zu hören.", "chapter": "Kapitel {{id}} von 5", "instructions": "Höre dir zwei Töne an und wähle ihr Intervall. Du kannst sie beliebig oft wiederholen – ganz ohne Zeitdruck.", "play": "Level {{id}} spielen →", "explore": "Alle 100 Level entdecken", "questions": "10 Fragen pro Level", "thresholds": "★ {{one}} richtig · ★★ {{two}} · ★★★ {{three}}", "volume": "Wähle eine angenehme Lautstärke. Mit Kopfhörern lassen sich ähnliche Intervalle oft leichter unterscheiden.", "credits": "Klänge & Mitwirkende" },
-  "map": { "eyebrow": "Deine musikalische Entdeckungsreise", "title": "Ein Intervall nach dem anderen.", "instructions": "Mit einem Stern schaltest du das nächste Level frei. Sammle {{required}} Sterne in einem Kapitel, um das nächste Kapitel zu öffnen.", "chapterProgress": "Kapitel {{id}} · {{count}} / 60 Sterne", "chapterLocked": "Gesperrt · Sammle {{required}} Sterne in Kapitel {{previous}} ({{earned}}/{{required}})." },
-  "chapters": { "1": "Erste Schritte", "2": "Entdecke dein Gehör", "3": "Höre genauer hin", "4": "Vertraue deinem Gehör", "5": "Die ganze Klangvielfalt" },
-  "exercise": { "unavailable": "Dieses Level ist noch nicht freigeschaltet.", "question": "Level {{level}} · Frage {{question}} / {{total}}", "prompt": "Welches Intervall hörst du?", "choose": "Wähle eine Antwort, sobald du bereit bist.", "correct": "Richtig! {{interval}}.", "incorrect": "Nicht ganz. {{interval}}.", "next": "Nächste Frage →", "results": "Zum Ergebnis →", "listening": "Wird abgespielt…", "replay": "↻ Intervall wiederholen", "harmonic": "Zwei Töne gleichzeitig", "ascending": "Aufsteigende Töne", "descending": "Absteigende Töne", "tracker": "Frage {{number}}: {{status}}", "status": { "unanswered": "unbeantwortet", "correct": "richtig", "incorrect": "falsch" } },
-  "intervals": { "0": "Reine Prime", "1": "Kleine Sekunde", "2": "Große Sekunde", "3": "Kleine Terz", "4": "Große Terz", "5": "Reine Quarte", "6": "Tritonus", "7": "Reine Quinte", "8": "Kleine Sexte", "9": "Große Sexte", "10": "Kleine Septime", "11": "Große Septime", "12": "Reine Oktave", "17": "Reine Undezime", "19": "Reine Duodezime", "24": "Reine Doppeloktave", "fallback_one": "{{count}} Halbtonschritt", "fallback_other": "Intervall von {{count}} Halbtonschritten" },
-  "results": { "empty": "Wähle ein Level, um loszulegen.", "perfect": "Perfekt gehört!", "good": "Gut gehört!", "practice": "Jedes Hören zählt.", "score": "{{score}} / 10 richtig", "needStar": "Mit {{required}} richtigen Antworten erhältst du einen Stern und schaltest das nächste Level frei.", "bestKept": "Deine höchste Punktzahl und deine Sterne bleiben beim Wiederholen erhalten.", "previous": "Bisherige Bestleistung: {{score}}/10 · {{stars}}", "best": "Neue Bestleistung: {{score}}/10 · {{stars}}", "saving": "Fortschritt wird gespeichert…", "notSaved": "Dein Fortschritt ist noch nicht gespeichert.", "saved": "Dein Fortschritt ist auf diesem Gerät gespeichert.", "unlocked": "Kapitel {{id}} freigeschaltet!", "unlockMessage": "Mit deinen Sternen hast du einen weiteren Abschnitt freigeschaltet.", "finish": "Du hast alle 100 Level geschafft! In der Übersicht kannst du Level wiederholen und weitere Sterne sammeln.", "retry": "Level {{id}} wiederholen", "map": "Zurück zur Levelübersicht" },
-  "errors": { "progressTitle": "Dein Spielstand braucht Aufmerksamkeit", "progressLoad": "Dein Fortschritt konnte nicht geladen werden. Die vorhandenen Daten wurden nicht überschrieben. Bitte versuche es erneut.", "progressSave": "Dein Fortschritt ist noch im Arbeitsspeicher, konnte aber nicht gespeichert werden. Versuche es erneut, bevor du die App schließt.", "retryLoad": "Fortschritt erneut laden", "retrySave": "Erneut speichern", "audioPlayback": "Der Ton konnte nicht abgespielt werden. Prüfe die Lautstärke und tippe auf Wiederholen, um es erneut zu versuchen." },
-  "offline": { "ready": "Bereit zum Offline-Spielen.", "preparing": "Klänge werden für die Offline-Nutzung gespeichert. Lass diesen Tab geöffnet, bis alles bereit ist.", "failed": "Die Klänge konnten nicht offline gespeichert werden. Gib Speicherplatz im Browser frei und lade die Seite erneut." },
-  "credits": { "description": "128 General-MIDI-Programme, mit FluidSynth aus dem offiziell bereitgestellten MS-Basic-SoundFont erzeugt. Die Instrumentenklänge sind für die Offline-Wiedergabe enthalten. Einige GM-Programme sind Geräuscheffekte; die Intervallübungen verwenden deshalb nur Instrumente mit klarer Tonhöhe.", "originalNotice": "Originaler Lizenz- und Quellenhinweis (aus rechtlichen Gründen unverändert auf Englisch):" }
+  "language": {
+    "label": "Sprache",
+    "change": "Zu {{language}} wechseln",
+    "saveError": "Die Sprache wurde geändert, aber die Auswahl konnte nicht gespeichert werden. Bitte versuche es erneut.",
+    "loadError": "Deine gespeicherte Sprache konnte nicht geladen werden. Es wird die Gerätesprache verwendet.",
+    "retry": "Erneut versuchen"
+  },
+  "nav": {
+    "home": "← Startseite",
+    "map": "Levelübersicht",
+    "mapBack": "← Übersicht",
+    "back": "← Zurück",
+    "restart": "↻ Neu starten",
+    "restartLabel": "Level neu starten"
+  },
+  "common": {
+    "loading": "Wird geladen…",
+    "opening": "Intervalify wird geöffnet…",
+    "locked": "Gesperrt",
+    "levelTitle": "Level {{id}} · {{title}}",
+    "starCount_one": "{{count}} Stern",
+    "starCount_other": "{{count}} Sterne",
+    "starRating": "{{stars}} von {{max}}",
+    "best": "Bestleistung: {{score}}/10",
+    "chapter": "Kapitel {{id}}",
+    "levelLabel": "Level {{id}}, {{title}}, {{status}}"
+  },
+  "home": {
+    "eyebrow": "Mit offenen Ohren durchs Leben",
+    "totalStars": "{{count}} / 300 Sterne",
+    "tagline": "Zwei Töne. Ein Moment Aufmerksamkeit.\nEine neue Art zu hören.",
+    "chapter": "Kapitel {{id}} von 5",
+    "instructions": "Höre dir zwei Töne an und wähle ihr Intervall. Du kannst sie beliebig oft wiederholen – ganz ohne Zeitdruck.",
+    "play": "Level {{id}} spielen →",
+    "explore": "Alle 100 Level entdecken",
+    "questions": "10 Fragen pro Level",
+    "thresholds": "★ {{one}} richtig · ★★ {{two}} · ★★★ {{three}}",
+    "volume": "Wähle eine angenehme Lautstärke. Mit Kopfhörern lassen sich ähnliche Intervalle oft leichter unterscheiden.",
+    "credits": "Klänge & Mitwirkende"
+  },
+  "map": {
+    "eyebrow": "Deine musikalische Entdeckungsreise",
+    "title": "Ein Intervall nach dem anderen.",
+    "instructions": "Mit einem Stern schaltest du das nächste Level frei. Sammle {{required}} Sterne in einem Kapitel, um das nächste Kapitel zu öffnen.",
+    "chapterProgress": "Kapitel {{id}} · {{count}} / 60 Sterne",
+    "chapterLocked": "Gesperrt · Sammle {{required}} Sterne in Kapitel {{previous}} ({{earned}}/{{required}})."
+  },
+  "chapters": {
+    "1": "Erste Schritte",
+    "2": "Entdecke dein Gehör",
+    "3": "Höre genauer hin",
+    "4": "Vertraue deinem Gehör",
+    "5": "Die ganze Klangvielfalt"
+  },
+  "exercise": {
+    "unavailable": "Dieses Level ist noch nicht freigeschaltet.",
+    "question": "Level {{level}} · Frage {{question}} / {{total}}",
+    "prompt": "Welches Intervall hörst du?",
+    "choose": "Wähle eine Antwort, sobald du bereit bist.",
+    "correct": "Richtig! {{interval}}.",
+    "incorrect": "Nicht ganz. {{interval}}.",
+    "next": "Nächste Frage →",
+    "results": "Zum Ergebnis →",
+    "listening": "Wird abgespielt…",
+    "replay": "↻ Intervall wiederholen",
+    "harmonic": "Zwei Töne gleichzeitig",
+    "ascending": "Aufsteigende Töne",
+    "descending": "Absteigende Töne",
+    "tracker": "Frage {{number}}: {{status}}",
+    "status": {
+      "unanswered": "unbeantwortet",
+      "correct": "richtig",
+      "incorrect": "falsch"
+    }
+  },
+  "intervals": {
+    "0": "Reine Prime",
+    "1": "Kleine Sekunde",
+    "2": "Große Sekunde",
+    "3": "Kleine Terz",
+    "4": "Große Terz",
+    "5": "Reine Quarte",
+    "6": "Tritonus",
+    "7": "Reine Quinte",
+    "8": "Kleine Sexte",
+    "9": "Große Sexte",
+    "10": "Kleine Septime",
+    "11": "Große Septime",
+    "12": "Reine Oktave",
+    "17": "Reine Undezime",
+    "19": "Reine Duodezime",
+    "24": "Reine Doppeloktave",
+    "fallback_one": "{{count}} Halbtonschritt",
+    "fallback_other": "Intervall von {{count}} Halbtonschritten"
+  },
+  "results": {
+    "empty": "Wähle ein Level, um loszulegen.",
+    "perfect": "Perfekt gehört!",
+    "good": "Gut gehört!",
+    "practice": "Jedes Hören zählt.",
+    "score": "{{score}} / 10 richtig",
+    "needStar": "Mit {{required}} richtigen Antworten erhältst du einen Stern und schaltest das nächste Level frei.",
+    "bestKept": "Deine höchste Punktzahl und deine Sterne bleiben beim Wiederholen erhalten.",
+    "previous": "Bisherige Bestleistung: {{score}}/10 · {{stars}}",
+    "best": "Neue Bestleistung: {{score}}/10 · {{stars}}",
+    "saving": "Fortschritt wird gespeichert…",
+    "notSaved": "Dein Fortschritt ist noch nicht gespeichert.",
+    "saved": "Dein Fortschritt ist auf diesem Gerät gespeichert.",
+    "unlocked": "Kapitel {{id}} freigeschaltet!",
+    "unlockMessage": "Mit deinen Sternen hast du einen weiteren Abschnitt freigeschaltet.",
+    "finish": "Du hast alle 100 Level geschafft! In der Übersicht kannst du Level wiederholen und weitere Sterne sammeln.",
+    "retry": "Level {{id}} wiederholen",
+    "map": "Zurück zur Levelübersicht"
+  },
+  "errors": {
+    "progressTitle": "Dein Spielstand braucht Aufmerksamkeit",
+    "progressLoad": "Dein Fortschritt konnte nicht geladen werden. Die vorhandenen Daten wurden nicht überschrieben. Bitte versuche es erneut.",
+    "progressSave": "Dein Fortschritt ist noch im Arbeitsspeicher, konnte aber nicht gespeichert werden. Versuche es erneut, bevor du die App schließt.",
+    "retryLoad": "Fortschritt erneut laden",
+    "retrySave": "Erneut speichern",
+    "audioPlayback": "Der Ton konnte nicht abgespielt werden. Prüfe die Lautstärke und tippe auf Wiederholen, um es erneut zu versuchen."
+  },
+  "offline": {
+    "ready": "Bereit zum Offline-Spielen.",
+    "preparing": "Klänge werden für die Offline-Nutzung gespeichert. Lass diesen Tab geöffnet, bis alles bereit ist.",
+    "failed": "Die Klänge konnten nicht offline gespeichert werden. Gib Speicherplatz im Browser frei und lade die Seite erneut."
+  },
+  "credits": {
+    "description": "128 General-MIDI-Programme, mit FluidSynth aus dem offiziell bereitgestellten MS-Basic-SoundFont erzeugt. Die Instrumentenklänge sind für die Offline-Wiedergabe enthalten. Einige GM-Programme sind Geräuscheffekte; die Intervallübungen verwenden deshalb nur Instrumente mit klarer Tonhöhe.",
+    "originalNotice": "Originaler Lizenz- und Quellenhinweis (aus rechtlichen Gründen unverändert auf Englisch):"
+  },
+  "legalPages": {
+    "updated": "Stand: 26. Oktober 2026",
+    "responsible": "Anbieter und Verantwortlicher",
+    "country": "Deutschland"
+  },
+  "legal": {
+    "title": "Impressum",
+    "operator": {
+      "title": "Diensteanbieter",
+      "body": "Intervalify wird von Tim Fischer unter der oben angegebenen Anschrift betrieben."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "body": "Bei Fragen zu Intervalify oder zu den Inhalten erreichen Sie den Anbieter unter der oben angegebenen E-Mail-Adresse."
+    },
+    "content": {
+      "title": "Über dieses Angebot",
+      "body": "Intervalify ist eine Anwendung zum Trainieren des musikalischen Intervallgehörs. Angaben zu den enthaltenen Klängen und deren Lizenzen finden Sie auf der Seite „Klänge & Mitwirkende“."
+    }
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "overview": {
+      "title": "Überblick",
+      "body": "Intervalify funktioniert ohne Benutzerkonto. Die Anwendung enthält keine Werbung, Analysewerkzeuge, Tracking-Pixel oder Cloud-Datenbank. Ihre Antworten werden auf Ihrem Gerät verarbeitet. Die Anwendung übermittelt Spielstände und Spracheinstellungen nicht an den Anbieter. Beim Aufruf der gehosteten Website verarbeitet der Hostinganbieter dennoch technische Daten, wie nachfolgend beschrieben."
+    },
+    "storage": {
+      "title": "Spielstand, Sprache und Offline-Speicher",
+      "body": "Intervalify speichert Bestleistungen, Sterne und freigeschaltete Level lokal unter intervalify.progress.v1. Die Spracheinstellung wird getrennt unter intervalify.language.v1 gespeichert. Die Geräte- oder Browsersprache wird ausgelesen, um die anfängliche Sprache der Oberfläche festzulegen. Im Web speichert ein Service Worker außerdem Anwendungsdateien und Klänge für die Offline-Nutzung zwischen. Diese Funktionen stellen das Spiel bereit, merken sich Ihre Einstellungen und ermöglichen die Offline-Wiedergabe; Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Der Zugriff auf den Gerätespeicher für diese gewünschten Funktionen erfolgt auf Grundlage von § 25 Abs. 2 Nr. 2 TDDDG. Die Anwendung setzt keine Werbe- oder Analyse-Cookies. Lokale Daten bleiben gespeichert, bis Sie die App- oder Websitedaten löschen, die App deinstallieren oder der Browser die Daten entfernt. Beim Löschen geht auch Ihr Spielstand verloren. Eine Sicherung in der Cloud findet nicht statt."
+    },
+    "hosting": {
+      "title": "Website-Hosting durch Cloudflare",
+      "body": "Für die Webversion ist das Hosting über Cloudflare Pages vorgesehen, einen Dienst der Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Beim Websiteaufruf verarbeitet Cloudflare technische Anfragedaten wie IP-Adresse, aufgerufene URL, Zugriffszeit sowie Browser- und Geräteinformationen, um die Website bereitzustellen und zu schützen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO: das berechtigte Interesse an einer sicheren und zuverlässigen Bereitstellung. Eine Verarbeitung kann außerhalb der EU bzw. des EWR, auch in den USA, stattfinden. Informationen zu Schutzmaßnahmen für internationale Übermittlungen und zur Verarbeitung stellt Cloudflare in der unten verlinkten Datenschutzerklärung bereit. Die Speicherdauer technischer Daten richtet sich nach der Hosting- und Sicherheitskonfiguration sowie den geltenden Cloudflare-Bedingungen; diese Daten sind von Ihrem lokal gespeicherten Spielstand getrennt.",
+      "link": "Datenschutzerklärung von Cloudflare"
+    },
+    "contact": {
+      "title": "Anfragen per E-Mail",
+      "body": "Wenn Sie den Anbieter per E-Mail kontaktieren, werden Ihre E-Mail-Adresse, Ihre Nachricht und darin enthaltene Angaben zur Bearbeitung der Anfrage verarbeitet. Rechtsgrundlage ist bei vertragsbezogenen Anfragen Art. 6 Abs. 1 lit. b DSGVO, bei sonstigen Anfragen Art. 6 Abs. 1 lit. f DSGVO aufgrund des Interesses an der Beantwortung von Nachrichten. Nachrichten werden nur so lange aufbewahrt, wie dies für die Bearbeitung erforderlich ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "body": "Soweit die gesetzlichen Voraussetzungen vorliegen, haben Sie Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Gegen eine Verarbeitung auf Grundlage berechtigter Interessen können Sie nach Art. 21 DSGVO Widerspruch einlegen; eine erteilte Einwilligung können Sie mit Wirkung für die Zukunft widerrufen. Wenden Sie sich dazu an den oben genannten Verantwortlichen. Sie können sich außerdem bei einer Datenschutzaufsichtsbehörde beschweren, insbesondere beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz. Lokale Spieldaten können Sie direkt in den Geräte- oder Browsereinstellungen löschen; der Anbieter kann diese nicht aus der Ferne abrufen."
+    }
+  }
 }
-

@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, colors, Page, ui } from '../components/ui';
 import { useGame } from '../game/context';
@@ -37,6 +37,10 @@ export default function HomeScreen() {
     <Text style={ui.small}>{t('home.volume')}</Text>
     <Button secondary onPress={() => router.push('/credits')}>{t('home.credits')}</Button>
     <OfflineStatus />
+    <View style={[ui.row, { justifyContent: 'center' }]}>
+      <Link href="/privacy" style={[ui.small, { paddingVertical: 12 }]}>{t('privacy.title')}</Link>
+      <Link href="/legal" style={[ui.small, { paddingVertical: 12 }]}>{t('legal.title')}</Link>
+    </View>
   </Page>;
 }
 
