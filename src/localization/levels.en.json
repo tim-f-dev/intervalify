@@ -1,0 +1,402 @@
+{
+  "1": {
+    "title": "Same or soaring",
+    "description": "Hear one pitch twice versus an octave; a narrow root range keeps the opening calm."
+  },
+  "2": {
+    "title": "A brass hello",
+    "description": "Introduce trumpet immediately, contrasting a major third with a fifth."
+  },
+  "3": {
+    "title": "Four familiar shapes",
+    "description": "First four-choice lesson combines only the opening consonances."
+  },
+  "4": {
+    "title": "Guitar steps down",
+    "description": "First descending pair; wide familiar intervals offset the new direction."
+  },
+  "5": {
+    "title": "Quick wooden echoes",
+    "description": "Introduce fast playback with unmistakably different unison and octave."
+  },
+  "6": {
+    "title": "Together at the piano",
+    "description": "First simultaneous notes; listen for the extra pitch rather than a melody."
+  },
+  "7": {
+    "title": "Air above",
+    "description": "A flute changes attack and register while the interval gap stays generous."
+  },
+  "8": {
+    "title": "Cello foundations",
+    "description": "Low cello introduces bass listening without close interval distinctions."
+  },
+  "9": {
+    "title": "A bow between friends",
+    "description": "Violin and shorter notes require attention to pitch instead of attack."
+  },
+  "10": {
+    "title": "First crossroads",
+    "description": "Review all three playback modes with two familiar timbres."
+  },
+  "11": {
+    "title": "Two shades of third",
+    "description": "Introduce the minor third beside its neighboring major third."
+  },
+  "12": {
+    "title": "A little farther",
+    "description": "Clarinet introduces major second and perfect fourth with only two choices."
+  },
+  "13": {
+    "title": "The tilted fifth",
+    "description": "Contrast a tritone with a perfect fifth in sustained vibraphone harmony."
+  },
+  "14": {
+    "title": "Bass breathing space",
+    "description": "A low acoustic bass lesson resets difficulty after neighboring harmony."
+  },
+  "15": {
+    "title": "Half-step lanterns",
+    "description": "Introduce the minor second in a bright, uncluttered celesta register."
+  },
+  "16": {
+    "title": "Six signposts",
+    "description": "First six-choice level; slow piano isolates answer recognition from timbre."
+  },
+  "17": {
+    "title": "Trumpet reprieve",
+    "description": "Two wide brass shapes ease the load after the first six-choice lesson."
+  },
+  "18": {
+    "title": "Warm sixths",
+    "description": "Introduce minor and major sixths with gentle nylon guitar attacks."
+  },
+  "19": {
+    "title": "Almost home",
+    "description": "Introduce both sevenths around an octave, with a fifth as an anchor."
+  },
+  "20": {
+    "title": "Opening mosaic",
+    "description": "Chapter review mixes timbres and modes but uses a mostly consonant pool."
+  },
+  "21": {
+    "title": "Sevenths in the reeds",
+    "description": "Oboe and descending sevenths start the chapter with a focused two-choice contrast."
+  },
+  "22": {
+    "title": "Bright crowded keys",
+    "description": "Electric piano groups four close small intervals without harmonic masking."
+  },
+  "23": {
+    "title": "Bells at a run",
+    "description": "A high glockenspiel makes speed the main challenge with separated intervals."
+  },
+  "24": {
+    "title": "Quiet low strings",
+    "description": "Low cello returns to a third-versus-octave contrast after two busier lessons."
+  },
+  "25": {
+    "title": "A fourth on either side",
+    "description": "Build a four-note interval neighborhood around the perfect fourth."
+  },
+  "26": {
+    "title": "Three travelers",
+    "description": "Violin, guitar and flute share a root band; infer the interval through changing envelopes."
+  },
+  "27": {
+    "title": "Sixths in the air",
+    "description": "A focused harmonic sixth lesson offsets unfamiliar flute blend with a small pool."
+  },
+  "28": {
+    "title": "Piano flashcards",
+    "description": "Six familiar intervals return at a faster pace."
+  },
+  "29": {
+    "title": "A clean landing",
+    "description": "Clean electric guitar offers an easy reset with a wider root range."
+  },
+  "30": {
+    "title": "Smallest shadows",
+    "description": "Hear close harmonic distances under a ringing vibraphone decay."
+  },
+  "31": {
+    "title": "Low brass corners",
+    "description": "Tuba moves familiar shapes into its natural low register."
+  },
+  "32": {
+    "title": "Thirds on the way down",
+    "description": "Fast steel guitar narrows the task to neighboring thirds."
+  },
+  "33": {
+    "title": "Near the octave",
+    "description": "Six upper intervals compete; slow piano keeps their contour clear."
+  },
+  "34": {
+    "title": "Marimba rest stop",
+    "description": "A short-attack consonance lesson releases the prior memory load."
+  },
+  "35": {
+    "title": "Reed junction",
+    "description": "Alto sax and clarinet mix intervals with different harmonic tensions."
+  },
+  "36": {
+    "title": "High porcelain",
+    "description": "Very high celesta seconds ask for careful direction-independent hearing."
+  },
+  "37": {
+    "title": "Harp geometry",
+    "description": "Equal four-semitone spacing makes a distinctive harp recognition task."
+  },
+  "38": {
+    "title": "Bass under pressure",
+    "description": "Low finger bass combines neighbor intervals, changing modes and shorter notes."
+  },
+  "39": {
+    "title": "Flute horizon",
+    "description": "Clear high flute fourths and octaves give an intentional late-chapter breather."
+  },
+  "40": {
+    "title": "Second mosaic",
+    "description": "A six-choice review samples both close and wide intervals without rushing."
+  },
+  "41": {
+    "title": "Viola welcome",
+    "description": "Viola opens with a manageable pool while widening the root band."
+  },
+  "42": {
+    "title": "Seconds in company",
+    "description": "Six small harmonic intervals need sustained listening rather than contour memory."
+  },
+  "43": {
+    "title": "Piccolo windows",
+    "description": "Introduce piccolo in its natural high range with familiar interval shapes."
+  },
+  "44": {
+    "title": "Two soft plucks",
+    "description": "A low guitar fourth-versus-octave break follows dense harmony and high winds."
+  },
+  "45": {
+    "title": "Three ways through",
+    "description": "Piano and violin alternate through six neighboring distances and all modes."
+  },
+  "46": {
+    "title": "Organ dusk",
+    "description": "Sustained low organ harmonies make the sixth-to-seventh neighborhood demanding."
+  },
+  "47": {
+    "title": "Quick brass anchors",
+    "description": "A tiny familiar pool keeps a very short-note trumpet sprint approachable."
+  },
+  "48": {
+    "title": "Sevenths falling",
+    "description": "Flute compares the octave with its three nearest lower wide intervals."
+  },
+  "49": {
+    "title": "A wooden switch",
+    "description": "Marimba and xylophone alternate narrow seconds and wider tension pairs."
+  },
+  "50": {
+    "title": "Wide piano compass",
+    "description": "The root spans nearly three octaves; interval identity must survive transposition."
+  },
+  "51": {
+    "title": "Cello thirds return",
+    "description": "Focused low harmonic thirds provide a pause without removing fine discrimination."
+  },
+  "52": {
+    "title": "Accordion angles",
+    "description": "Accordion introduces a rich reed spectrum with six deliberately uneven distances."
+  },
+  "53": {
+    "title": "Guitar lightning",
+    "description": "Short guitar attacks support a fast review of separated shapes."
+  },
+  "54": {
+    "title": "Air and strings",
+    "description": "A two-choice fourth/fifth contrast reduces load while retaining mixed timbres."
+  },
+  "55": {
+    "title": "Sixths under glass",
+    "description": "Bright upper-register celesta harmonies crowd around both sixths."
+  },
+  "56": {
+    "title": "Bassoon pathways",
+    "description": "A low bassoon contour lesson expands the timbre palette at a forgiving pace."
+  },
+  "57": {
+    "title": "The moving semitone",
+    "description": "Fast fourth/tritone discrimination changes between piano and trumpet."
+  },
+  "58": {
+    "title": "Open strings clearing",
+    "description": "Pizzicato unisons and octaves form a deliberately easy recovery."
+  },
+  "59": {
+    "title": "Eleven neighboring doors",
+    "description": "Every non-unison simple interval except octave can appear among six choices."
+  },
+  "60": {
+    "title": "Third mosaic",
+    "description": "Four core timbres revisit a broad interval pool with changing playback modes."
+  },
+  "61": {
+    "title": "Harp invitation",
+    "description": "The chapter starts with a transparent plucked timbre and four spaced distances."
+  },
+  "62": {
+    "title": "Low harmonic labyrinth",
+    "description": "Six tight harmonic intervals in low piano and cello need patient separation."
+  },
+  "63": {
+    "title": "High wind sprint",
+    "description": "Piccolo and flute descend quickly through familiar wide intervals."
+  },
+  "64": {
+    "title": "Trumpet sunlight",
+    "description": "A broad two-choice trumpet lesson intentionally releases the combined demands."
+  },
+  "65": {
+    "title": "Around the sixth",
+    "description": "Steel guitar compares a continuous six-interval neighborhood."
+  },
+  "66": {
+    "title": "Double-reed shadows",
+    "description": "Oboe and English horn mix less familiar distances while allowing long listening."
+  },
+  "67": {
+    "title": "Clavinet corners",
+    "description": "Short clavinet attacks offer a rhythmic challenge with mostly obvious shapes."
+  },
+  "68": {
+    "title": "Two bass colors",
+    "description": "Compare neighboring thirds across acoustic and fretless bass without harmony."
+  },
+  "69": {
+    "title": "Choir intervals",
+    "description": "Slow choir attacks require sustained attention to simultaneous pitch distance."
+  },
+  "70": {
+    "title": "Nylon reset",
+    "description": "An intentionally simple mixed-mode lesson follows the unfamiliar choir."
+  },
+  "71": {
+    "title": "All thirteen",
+    "description": "First complete simple-interval pool, anchored by a single familiar instrument."
+  },
+  "72": {
+    "title": "Muted brass twins",
+    "description": "A focused seventh comparison introduces muted trumpet with ample duration."
+  },
+  "73": {
+    "title": "Celesta zigzag",
+    "description": "High celesta, six choices and fast mode changes combine three demands."
+  },
+  "74": {
+    "title": "Cello long view",
+    "description": "Long low cello notes and wide choices restore confidence after the sprint."
+  },
+  "75": {
+    "title": "Saxophone neighbors",
+    "description": "Alto and tenor sax blend adjacent small harmonic intervals."
+  },
+  "76": {
+    "title": "Marimba spectrum",
+    "description": "A wide root range prevents memorizing one marimba contour per answer."
+  },
+  "77": {
+    "title": "Organ pillars",
+    "description": "Return to open intervals after the previous speed and transposition challenge."
+  },
+  "78": {
+    "title": "Half-step relay",
+    "description": "Only seconds compete, but four timbres and every mode keep the lesson varied."
+  },
+  "79": {
+    "title": "Flute calm",
+    "description": "An easy melodic third/fifth contrast creates space before the chapter review."
+  },
+  "80": {
+    "title": "Fourth mosaic",
+    "description": "Complete simple-interval coverage across keys, brass, strings and clarinet."
+  },
+  "81": {
+    "title": "A clear entrance",
+    "description": "Vibraphone opens the last chapter with four familiar shapes and a clear contour."
+  },
+  "82": {
+    "title": "Crowded upper strings",
+    "description": "Dense wide-interval harmonies alternate violin and viola near their upper register."
+  },
+  "83": {
+    "title": "Trumpet in motion",
+    "description": "A fast descending brass survey spans changing roots and seven possible distances."
+  },
+  "84": {
+    "title": "Guitar shelter",
+    "description": "A deliberately easy octave/unison harmony break keeps the final chapter humane."
+  },
+  "85": {
+    "title": "Black-key neighbors",
+    "description": "Acoustic and electric pianos contrast six close distances at fast pace."
+  },
+  "86": {
+    "title": "Piccolo fine print",
+    "description": "Upper-register piccolo narrows the focus to the octave and its neighbors."
+  },
+  "87": {
+    "title": "Bass octave puzzle",
+    "description": "Low bass timbres and mixed modes challenge pitch separation over a broad pool."
+  },
+  "88": {
+    "title": "Harp breathing room",
+    "description": "Familiar fourths and fifths offer recovery in a bright plucked timbre."
+  },
+  "89": {
+    "title": "Reed close-up",
+    "description": "Oboe and clarinet combine close harmony with six distractor candidates."
+  },
+  "90": {
+    "title": "Across the keyboard",
+    "description": "The full interval pool spans three piano octaves at fast speed."
+  },
+  "91": {
+    "title": "Flute thirds revisit",
+    "description": "An unhurried third comparison creates a clear reset after the broad piano test."
+  },
+  "92": {
+    "title": "Metal and wood",
+    "description": "Celesta, vibraphone and marimba demand recognition across different decays."
+  },
+  "93": {
+    "title": "String seconds sprint",
+    "description": "Fast bowed and pizzicato strings concentrate on small descending intervals."
+  },
+  "94": {
+    "title": "Beyond the octave",
+    "description": "Introduce twelfth and double octave beside their simple fifth and octave anchors."
+  },
+  "95": {
+    "title": "Low brass return",
+    "description": "Two consonant tuba harmonies ease the load after compound intervals."
+  },
+  "96": {
+    "title": "Compound air",
+    "description": "Flute contrasts simple and compound fourths, fifths and octaves."
+  },
+  "97": {
+    "title": "Chamber crossroads",
+    "description": "Five familiar chamber colors cover every simple interval with changing modes."
+  },
+  "98": {
+    "title": "The last quick pair",
+    "description": "A tiny pool hides a precise tritone/fifth distinction under fast mode changes."
+  },
+  "99": {
+    "title": "One quiet breath",
+    "description": "Return to opening consonances for a calm, intentional penultimate level."
+  },
+  "100": {
+    "title": "Intervalify finale",
+    "description": "Final synthesis: all simple intervals, five timbres, all modes and six choices; compounds remain a separate skill."
+  }
+}

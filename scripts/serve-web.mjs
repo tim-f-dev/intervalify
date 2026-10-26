@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 const root = path.resolve(process.argv[2] ?? 'dist');
+const port = Number(process.argv[3] ?? 8081);
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.m4a': 'audio/mp4', '.png': 'image/png', '.ico': 'image/x-icon', '.css': 'text/css', '.ttf': 'font/ttf' };
 createServer((request, response) => {
   const url = new URL(request.url, 'http://localhost');
@@ -22,4 +23,4 @@ createServer((request, response) => {
     response.writeHead(206, { ...headers, 'Content-Range': `bytes ${start}-${end}/${size}`, 'Content-Length': end - start + 1 });
     createReadStream(file, { start, end }).pipe(response);
   } else { response.writeHead(200, { ...headers, 'Content-Length': size }); createReadStream(file).pipe(response); }
-}).listen(8081, '127.0.0.1', () => console.log(`Intervalify production preview: http://127.0.0.1:8081 (${root})`));
+}).listen(port, '127.0.0.1', () => console.log(`Intervalify production preview: http://127.0.0.1:${port} (${root})`));

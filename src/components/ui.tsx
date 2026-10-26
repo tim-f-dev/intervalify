@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useGame } from '../game/context';
+import { useTranslation } from 'react-i18next';
 
 export const colors = { ink: '#173E39', muted: '#526D67', canvas: '#F6F8F2', paper: '#FFFFFF',
   green: '#216451', pale: '#E5EEE3', border: '#D5DFD4', gold: '#B87915', amber: '#FFF0CB',
@@ -33,23 +34,25 @@ export function Button({ children, onPress, disabled, secondary, label }: {
   </Pressable>;
 }
 export function Stars({ count, large = false }: { count: number; large?: boolean }) {
-  return <Text accessibilityLabel={`${count} of 3 stars`} style={{ color: colors.gold, fontSize: large ? 44 : 17, letterSpacing: 3 }}>
+  const { t } = useTranslation();
+  return <Text accessibilityLabel={t('common.starRating', { stars: t('common.starCount', { count }), max: 3 })} style={{ color: colors.gold, fontSize: large ? 44 : 17, letterSpacing: 3 }}>
     {'★'.repeat(count)}{'☆'.repeat(3 - count)}
   </Text>;
 }
 export function Page({ children, header, footer, compact = false }: {
   children: ReactNode; header?: ReactNode; footer?: ReactNode; compact?: boolean;
 }) {
+  const { t } = useTranslation();
   const { ready, loadError, saveError, saving, retrySave, reload } = useGame();
   return <SafeAreaView style={ui.page}>
     {ready && header && <View style={{ width: '100%', maxWidth: 820, alignSelf: 'center', paddingHorizontal: 16, paddingTop: 8 }}>{header}</View>}
     <ScrollView style={{ flex: 1 }} contentContainerStyle={[ui.content, compact && { padding: 16, paddingBottom: 16, gap: 12 }]}>
     {!ready ? <View style={ui.card}>
-      <Text style={ui.heading}>{loadError ? 'Your progress needs attention' : 'Opening Intervalify…'}</Text>
-      {loadError ? <><Text style={ui.body}>{loadError}</Text><Button onPress={reload}>Retry loading progress</Button></> : <ActivityIndicator color={colors.green} />}
+      <Text style={ui.heading}>{t(loadError ? 'errors.progressTitle' : 'common.opening')}</Text>
+      {loadError ? <><Text style={ui.body}>{t(loadError)}</Text><Button onPress={reload}>{t('errors.retryLoad')}</Button></> : <ActivityIndicator color={colors.green} />}
     </View> : <>
-      {saveError && <View style={ui.warning}><Text accessibilityLiveRegion="polite" style={ui.body}>{saveError}</Text>
-        <Button onPress={retrySave} disabled={saving}>Retry saving</Button></View>}
+      {saveError && <View style={ui.warning}><Text accessibilityLiveRegion="polite" style={ui.body}>{t(saveError)}</Text>
+        <Button onPress={retrySave} disabled={saving}>{t('errors.retrySave')}</Button></View>}
       {children}
     </>}
     </ScrollView>

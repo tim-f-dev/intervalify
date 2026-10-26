@@ -33,7 +33,8 @@
           "recordAudioAndroid": false
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      ["expo-localization", { "supportedLocales": ["en", "de"], "supportsRTL": false, "forcesRTL": false }]
     ],
     "platforms": [
       "android",

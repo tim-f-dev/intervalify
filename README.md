@@ -29,7 +29,9 @@ Expo Go serves development assets from Metro and is not the distributable offlin
 | `npm test` | Audio scheduling, question and progression tests |
 | `npm run validate:levels` | Validate all 100 levels, randomized questions and exhaustive sample coverage |
 | `npm run verify:assets` | Verify every audio file's SHA-256, M4A container and render levels |
-| `npm run check` | All TypeScript, lint, tests, level and asset checks |
+| `npm run validate:i18n` | Translation completeness, variables and visible-string checks |
+| `npm run i18n:sync-en` | Refresh English level/instrument translations after source edits |
+| `npm run check` | All TypeScript, lint, tests, level, asset and localization checks |
 | `npm run docs:levels` | Refresh the design reference from the manually authored configurations |
 | `npm run export` | Production Android, iOS and web bundles in `dist/`, plus web offline cache |
 | `npm run export:web` | Web-only production export in `dist-web/`, plus offline cache |
@@ -116,5 +118,10 @@ Native Android/iOS audio output, silent-mode/interruption behavior, Bluetooth la
 
 ## Dependency audit
 
-The SDK-compatible dependency tree currently reports 26 npm audit findings (7 moderate, 19 high). npm's suggested fixes include incompatible downgrades to Expo 44 and React Native 0.72, so the compatible versions are retained. Recheck upstream fixes with `npm audit`; do not apply `npm audit fix --force` blindly.
+The SDK-compatible dependency tree currently reports 8 npm audit findings (3 moderate, 5 high). npm's suggested fixes include incompatible downgrades to Expo 44 and React Native 0.72, so the compatible versions are retained. Recheck upstream fixes with `npm audit`; do not apply `npm audit fix --force` blindly.
+
+
+## Languages
+
+The entire interface supports English and German, with automatic first-launch locale detection and a persistent home-screen language selector. All 100 level titles/instructions, interval names, instrument names, feedback and accessibility text are localized. Original third-party legal notices remain verbatim. See [LOCALIZATION.md](LOCALIZATION.md) for translation structure, validation and adding more languages.
 

@@ -4,19 +4,20 @@ import { Button, colors, Page, Stars, ui } from '../components/ui';
 import { useGame } from '../game/context';
 import { levels } from '../game/levels';
 import { CHAPTER_STAR_REQUIREMENT } from '../game/progress';
+import { useTranslation } from 'react-i18next';
 
-const chapterNames = ['First steps', 'Find your ear', 'Listen deeper', 'Trust the distance', 'Full spectrum'];
 export default function LevelMap() {
+  const { t } = useTranslation();
   const { progress } = useGame();
   return <Page>
-    <Button secondary onPress={() => router.replace('/')}>← Home</Button>
-    <Text style={ui.eyebrow}>Your listening journey</Text>
-    <Text role="heading" style={ui.title}>One interval at a time.</Text>
-    <Text style={ui.body}>Earn one star to open the next level. Collect 20 stars in a chapter to open the next chapter.</Text>
+    <Button secondary onPress={() => router.replace('/')}>{t('nav.home')}</Button>
+    <Text style={ui.eyebrow}>{t('map.eyebrow')}</Text>
+    <Text role="heading" style={ui.title}>{t('map.title')}</Text>
+    <Text style={ui.body}>{t('map.instructions', { required: CHAPTER_STAR_REQUIREMENT })}</Text>
     {progress.chapters.map((chapter, chapterIndex) => <View key={chapter.id} style={ui.card}>
-      <Text style={ui.eyebrow}>Chapter {chapter.id} · {chapter.stars} / 60 stars</Text>
-      <Text role="heading" style={ui.heading}>{chapterNames[chapterIndex]}</Text>
-      {!chapter.unlocked && <Text style={ui.body}>Locked · Earn {CHAPTER_STAR_REQUIREMENT} stars in Chapter {chapter.id - 1} ({progress.chapters[chapterIndex - 1].stars}/{CHAPTER_STAR_REQUIREMENT}).</Text>}
+      <Text style={ui.eyebrow}>{t('map.chapterProgress', { id: chapter.id, count: chapter.stars })}</Text>
+      <Text role="heading" style={ui.heading}>{t(`chapters.${chapter.id}`)}</Text>
+      {!chapter.unlocked && <Text style={ui.body}>{t('map.chapterLocked', { required: CHAPTER_STAR_REQUIREMENT, previous: chapter.id - 1, earned: progress.chapters[chapterIndex - 1].stars })}</Text>}
       <View style={styles.path}>
         {levels.slice(chapterIndex * 20, chapterIndex * 20 + 20).map((level, index) => {
           const unlocked = progress.unlockedLevels.includes(level.id);
@@ -24,13 +25,13 @@ export default function LevelMap() {
           return <View key={level.id} style={[styles.node, { transform: [{ translateX: [0, 28, 46, 28, 0, -28, -46, -28][index % 8] }] }]}>
             {index > 0 && <View style={styles.connector} />}
             <Pressable disabled={!unlocked} onPress={() => router.push(`/play/${level.id}`)}
-              accessibilityRole="button" accessibilityLabel={`Level ${level.id}, ${level.title}, ${unlocked ? `${stars} stars` : 'locked'}`}
+              accessibilityRole="button" accessibilityLabel={t('common.levelLabel', { id: level.id, title: t(`${level.id}.title`, { ns: 'levels' }), status: unlocked ? t('common.starCount', { count: stars }) : t('common.locked') })}
               accessibilityState={{ disabled: !unlocked }}
               style={({ pressed }) => [styles.circle, !unlocked && styles.locked, stars > 0 && styles.completed, pressed && { opacity: 0.7 }]}>
               <Text style={[styles.number, !unlocked && { color: colors.muted }]}>{level.id}</Text>
             </Pressable>
-            <Stars count={stars} /><Text style={ui.small}>{unlocked ? level.title : 'Locked'}</Text>
-            {progress.best[level.id] && <Text style={ui.small}>Best: {progress.best[level.id].score}/10</Text>}
+            <Stars count={stars} /><Text style={[ui.small, { textAlign: 'center' }]}>{unlocked ? t(`${level.id}.title`, { ns: 'levels' }) : t('common.locked')}</Text>
+            {progress.best[level.id] && <Text style={ui.small}>{t('common.best', { score: progress.best[level.id].score })}</Text>}
           </View>;
         })}
       </View>

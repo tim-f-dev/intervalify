@@ -22,14 +22,14 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const saveRevision = useRef(0);
   const reload = useCallback(() => {
     void store.load().then((loaded) => { latest.current = loaded; setProgress(loaded); setLoadError(null); setReady(true); })
-      .catch((e: unknown) => { setLoadError(e instanceof Error ? e.message : 'Unable to read saved progress.'); });
+      .catch(() => { setLoadError('errors.progressLoad'); });
   }, []);
   useEffect(reload, [reload]);
   const persist = useCallback((value: Progress) => {
     const revision = ++saveRevision.current;
     setSaving(true);
     void store.save(value).then(() => { if (revision === saveRevision.current) setSaveError(null); })
-      .catch(() => { if (revision === saveRevision.current) setSaveError('Progress is in memory but could not be saved. Retry before closing the app.'); })
+      .catch(() => { if (revision === saveRevision.current) setSaveError('errors.progressSave'); })
       .finally(() => { if (revision === saveRevision.current) setSaving(false); });
   }, []);
   const finish = useCallback((levelId: number, score: number) => {

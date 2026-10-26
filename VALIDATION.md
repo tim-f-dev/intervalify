@@ -37,3 +37,14 @@ The test browser retains a local demonstration result of 4/10. No test progress 
 ## Physical-device follow-up
 
 On Android and iOS, install a standalone build, enable airplane mode, complete and replay a level in each playback mode, background/resume during the first melodic note, navigate away during playback, kill/reopen the app and verify best stars/scores and chapter gates. Check comfortable volume, attack/release and simultaneous-note balance on headphones and speakers. Test a second instrument and a high/low/compound lesson after earning the corresponding progression unlocks.
+
+## Localization validation — 26 October 2026
+
+- TypeScript, ESLint (no warnings), all 23 tests, level validation and all audio checksum checks pass.
+- Translation validation passes: English/German key and interpolation parity, plural resolution, 100 level titles/instructions, 128 instrument labels, numeric interval names and JSX/accessibility literal scan.
+- Android/iOS Hermes and web production exports succeed with both languages bundled; offline cache generated successfully.
+- Web UI: first visit detected German; English switching updated immediately and persisted after reload. German exercise, numbered feedback tracker, results, chapter gates and locked-level labels checked. English credits checked; browser reported no warnings/errors. At 320 x 740, German exercise feedback and next-question control remain visible without scrolling.
+- Locale-controller tests verify preference override, persistence, failed storage/retry, ordered writes, fallback detection, plurals, and unchanged language-independent question/progress data. Screen state and audio effects have no language-dependent remount keys or playback dependencies. No physical Android/iOS runtime was connected; their layout/audio still need device testing.
+- Expo Doctor: 19/20 checks pass; existing SDK 58 packages have available patch updates (expo, expo-asset, expo-audio, expo-constants, expo-linking, expo-router, expo-status-bar). These unrelated patches were not applied as part of localization.
+- Original third-party license/attribution notices remain verbatim in English, with translated explanatory text. No application UI or level text is intentionally untranslated; Intervalify and language autonyms retain their names.
+- Localized preview is served at http://127.0.0.1:8082 to isolate QA progress from the existing 8081 origin. The preview script accepts an optional third argument for the port.
