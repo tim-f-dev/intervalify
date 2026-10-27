@@ -1,4 +1,15 @@
-# Third-party audio and tools
+# Third-party licenses and notices
+
+Original Intervalify material owned by Tim Fischer is governed by the root
+`LICENSE`. That proprietary notice does not apply to third-party components
+and does not replace or remove their licenses.
+
+## Expo and template material
+
+The original repository MIT notice, copyright (c) 2015-present 650 Industries,
+Inc. (aka Expo), is preserved verbatim in `licenses/Expo.txt`. Expo and material
+derived from its template remain subject to that MIT license. The proprietary
+notice does not claim exclusive rights over those portions.
 
 ## Bundled instrument recordings: MS Basic
 

@@ -47,5 +47,6 @@
     "validate:i18n": "tsx scripts/validate-translations.ts",
     "i18n:sync-en": "tsx scripts/sync-source-translations.ts"
   },
-  "private": true
+  "private": true,
+  "license": "UNLICENSED"
 }
