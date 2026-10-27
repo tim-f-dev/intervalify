@@ -4,21 +4,6 @@ Intervalify is a musical ear-training game that helps you recognize the distance
 
 [Play Intervalify](https://intervalify.app/)
 
-## Listen at your own pace
-
-Each level has ten questions. You'll hear two notes played upwards, downwards, or together, then choose the interval you heard. Replay them as often as you like: there is no timer, and you can answer whenever you're ready.
-
-Feedback shows the correct interval after each answer. A row of green and red markers keeps track of your answers as you go.
-
-## A journey through 100 levels
-
-Five chapters take you from familiar intervals to closer distinctions, different instrument sounds, and intervals beyond an octave. Each level has its own combination of sounds and listening challenges.
-
-- **5 correct answers** earn one star and unlock the next level.
-- **8 correct answers** earn two stars.
-- **10 correct answers** earn three stars.
-
-Collect 20 stars in a chapter to open the next one. You can revisit earlier levels at any time; your best score and stars are kept.
 
 ## Made for everyday practice
 
