@@ -1,6 +1,6 @@
 # Localization
 
-English and German are bundled with the application, including offline builds. i18next/react-i18next render translations immediately; expo-localization supplies the initial device/browser locale. German locales use German, all other locales default to English. The home screen shows English/Deutsch buttons and the current selection.
+English and German are bundled with the application, including offline builds. i18next/react-i18next render translations immediately; expo-localization supplies the initial device/browser locale. German locales use German, all other locales default to English. The Options submenu shows English/Deutsch buttons and the current selection.
 
 `src/localization/core.ts` owns resources and the language controller. The manual preference uses AsyncStorage key `intervalify.language.v1`, independently of `intervalify.progress.v1`. Initialization waits for preference hydration; later changes do not remount screens, regenerate questions or restart playback. Storage errors offer a translated Retry action.
 
@@ -20,7 +20,7 @@ After changing authored English level or instrument metadata, run `npm run i18n:
 
 1. Copy each English namespace to a new language file and translate every value, preserving keys and interpolation variables.
 2. Import and register the namespaces in `core.ts`; extend `supportedLngs`, `isLanguage` and locale detection. Keep English as fallback.
-3. Add the language's autonym to the home selector and update its typed options. Add the locale to the expo-localization plugin's `supportedLocales` in `app.json`.
+3. Add the language's autonym to the Options selector and update its typed options. Add the locale to the expo-localization plugin's `supportedLocales` in `app.json`.
 4. Extend the validator and controller tests to include the new language and its plural forms. Add any extra CLDR plural categories needed for that language. For RTL languages, configure RTL support and audit layout separately.
 5. Run all checks, export all platforms, and review every screen at narrow mobile widths, including longest level names, feedback, errors and accessibility labels. Test preference persistence and confirm gameplay/progress remain unchanged.
 

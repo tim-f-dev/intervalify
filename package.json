@@ -45,7 +45,8 @@
     "export:web": "expo export --platform web --max-workers 2 --output-dir dist-web && node scripts/build-offline.mjs dist-web",
     "verify:assets": "tsx scripts/verify-assets.ts",
     "validate:i18n": "tsx scripts/validate-translations.ts",
-    "i18n:sync-en": "tsx scripts/sync-source-translations.ts"
+    "i18n:sync-en": "tsx scripts/sync-source-translations.ts",
+    "export:test": "node scripts/export-test.mjs"
   },
   "private": true,
   "license": "UNLICENSED"

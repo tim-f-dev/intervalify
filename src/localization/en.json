@@ -1,4 +1,25 @@
 {
+  "levelDetails": {
+    "close": "Close level details",
+    "previous": "Previous level",
+    "next": "Next level",
+    "start": "Start level",
+    "instruments": "Instruments",
+    "intervals": "Intervals",
+    "specialties": "Specialties",
+    "rules": "Playback & format",
+    "best": "Personal best: {{score}}/{{total}}",
+    "unplayed": "Not played yet",
+    "locked": "Earn one star in the previous level to unlock this level.",
+    "facts": "Facts {{current}}/{{total}}",
+    "previousFacts": "Previous facts",
+    "nextFacts": "More facts",
+    "format": "{{questions}} questions · {{choices}} answers per question · {{duration}} ms notes",
+    "mixed": "Ascending, descending & together",
+    "slow": "Slow",
+    "normal": "Normal speed",
+    "fast": "Fast"
+  },
   "language": {
     "label": "Language",
     "change": "Switch to {{language}}",
@@ -7,6 +28,8 @@
     "retry": "Retry"
   },
   "nav": {
+    "menu": "☰ Menu",
+    "resume": "Resume game",
     "home": "← Home",
     "map": "Level map",
     "mapBack": "← Level map",
@@ -37,7 +60,8 @@
     "questions": "10 questions per level",
     "thresholds": "★ {{one}} correct · ★★ {{two}} · ★★★ {{three}}",
     "volume": "Use a comfortable volume. Headphones can help you hear close intervals.",
-    "credits": "Sounds & credits"
+    "credits": "Sounds & credits",
+    "playMenu": "Play"
   },
   "map": {
     "eyebrow": "Your listening journey",
@@ -88,6 +112,10 @@
     "10": "Minor seventh",
     "11": "Major seventh",
     "12": "Perfect octave",
+    "13": "Minor ninth",
+    "14": "Major ninth",
+    "15": "Minor tenth",
+    "16": "Major tenth",
     "17": "Perfect eleventh",
     "19": "Perfect twelfth",
     "24": "Perfect double octave",
@@ -107,9 +135,9 @@
     "saving": "Saving progress…",
     "notSaved": "Progress has not been saved yet.",
     "saved": "Progress stored locally on this device.",
-    "unlocked": "Chapter {{id}} unlocked!",
-    "unlockMessage": "Your stars have opened another part of the journey.",
-    "finish": "You reached the end of all 100 levels. Revisit the map to improve your stars.",
+    "unlocked": "Level pack {{id}} unlocked!",
+    "unlockMessage": "Your total stars have opened another level pack.",
+    "finish": "You reached the end of all 100 levels. Revisit the packs to improve your stars.",
     "retry": "Retry level {{id}}",
     "map": "Back to the level map"
   },
@@ -128,10 +156,13 @@
   },
   "credits": {
     "description": "128 General MIDI programs, rendered from the officially distributed MS Basic SoundFont with FluidSynth. Instrument samples are bundled for offline playback. Some GM programs are sound effects, so interval lessons use pitched instruments only.",
-    "originalNotice": "Original license and attribution notice (preserved in English):"
+    "originalNotice": "Original license and attribution notice (preserved in English):",
+    "page": "Page {{current}} of {{total}}",
+    "previous": "← Previous",
+    "next": "Next →"
   },
   "legalPages": {
-    "updated": "Last updated: 26 October 2026",
+    "updated": "Last updated: 27 October 2026",
     "responsible": "Operator and data controller",
     "country": "Germany"
   },
@@ -158,7 +189,7 @@
     },
     "storage": {
       "title": "Progress, language and offline storage",
-      "body": "Intervalify stores your best scores, stars and unlocked levels locally under intervalify.progress.v1. Your language preference is stored separately under intervalify.language.v1. The device or browser language is read to select the initial interface language. On the web, a service worker also caches application files and audio for offline use. These functions provide the game, remember your settings and enable offline playback; their legal basis is Article 6(1)(b) GDPR. Access to device storage for these requested functions is based on Section 25(2)(2) TDDDG. No advertising or analytics cookies are set by the application. Local records remain until you clear the app or website data, uninstall the app, or the browser removes them. Clearing this data also deletes your saved progress. There is no cloud backup."
+      "body": "Intervalify stores your best scores, stars and unlocked levels locally under intervalify.progress.v1. Your language preference is stored separately under intervalify.language.v1. Your tutorial preference is stored under intervalify.tutorial.hidden.v1. The device or browser language is read to select the initial interface language. On the web, a service worker also caches application files and audio for offline use. These functions provide the game, remember your settings and enable offline playback; their legal basis is Article 6(1)(b) GDPR. Access to device storage for these requested functions is based on Section 25(2)(2) TDDDG. No advertising or analytics cookies are set by the application. Local records remain until you clear the app or website data, uninstall the app, or the browser removes them. Clearing this data also deletes your saved progress. There is no cloud backup."
     },
     "hosting": {
       "title": "Website hosting with Cloudflare",
@@ -173,5 +204,29 @@
       "title": "Your rights",
       "body": "Where the legal requirements are met, you have rights of access, rectification, erasure, restriction of processing and data portability. You may object to processing based on legitimate interests under Article 21 GDPR and withdraw any consent for future processing. Contact the operator using the details above. You may also complain to a data protection supervisory authority, including the State Commissioner for Data Protection and Freedom of Information of Rhineland-Palatinate. Local game data can be deleted directly through your device or browser settings; the operator cannot retrieve it remotely."
     }
+  },
+  "packs": {
+    "title": "Levels",
+    "pack": "Level pack {{id}}",
+    "back": "← Level packs",
+    "backToPack": "← Back to pack",
+    "instructions": "Choose a pack. Stars earned anywhere in the game unlock more packs.",
+    "levelInstructions": "Earn one star to unlock the next level.",
+    "stars": "★ {{count}} / 60 stars",
+    "range": "Levels {{first}}–{{last}}",
+    "locked": "Locked · {{required}} total stars required ({{earned}}/{{required}}).",
+    "label": "Level pack {{id}}, {{status}}",
+    "unavailable": "This level pack does not exist.",
+    "counter": "{{earned}}/{{required}} ★"
+  },
+  "options": {
+    "title": "Options"
+  },
+  "tutorial": {
+    "title": "How to play",
+    "dontShowAgain": "Don't Show again",
+    "start": "Start level",
+    "saving": "Saving…",
+    "saveError": "Your preference could not be saved. Try again, or uncheck the box to continue without saving."
   }
 }

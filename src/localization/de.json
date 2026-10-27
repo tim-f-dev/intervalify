@@ -1,4 +1,25 @@
 {
+  "levelDetails": {
+    "close": "Leveldetails schließen",
+    "previous": "Vorheriges Level",
+    "next": "Nächstes Level",
+    "start": "Level starten",
+    "instruments": "Instrumente",
+    "intervals": "Intervalle",
+    "specialties": "Besonderheiten",
+    "rules": "Wiedergabe & Ablauf",
+    "best": "Persönliche Bestleistung: {{score}}/{{total}}",
+    "unplayed": "Noch nicht gespielt",
+    "locked": "Verdiene einen Stern im vorherigen Level, um dieses Level freizuschalten.",
+    "facts": "Infos {{current}}/{{total}}",
+    "previousFacts": "Vorherige Infos",
+    "nextFacts": "Weitere Infos",
+    "format": "{{questions}} Fragen · {{choices}} Antworten pro Frage · {{duration}} ms pro Ton",
+    "mixed": "Aufwärts, abwärts & gleichzeitig",
+    "slow": "Langsam",
+    "normal": "Normales Tempo",
+    "fast": "Schnell"
+  },
   "language": {
     "label": "Sprache",
     "change": "Zu {{language}} wechseln",
@@ -7,6 +28,8 @@
     "retry": "Erneut versuchen"
   },
   "nav": {
+    "menu": "☰ Menü",
+    "resume": "Weiter spielen",
     "home": "← Startseite",
     "map": "Levelübersicht",
     "mapBack": "← Übersicht",
@@ -37,7 +60,8 @@
     "questions": "10 Fragen pro Level",
     "thresholds": "★ {{one}} richtig · ★★ {{two}} · ★★★ {{three}}",
     "volume": "Wähle eine angenehme Lautstärke. Mit Kopfhörern lassen sich ähnliche Intervalle oft leichter unterscheiden.",
-    "credits": "Klänge & Mitwirkende"
+    "credits": "Klänge & Mitwirkende",
+    "playMenu": "Spielen"
   },
   "map": {
     "eyebrow": "Deine musikalische Entdeckungsreise",
@@ -88,6 +112,10 @@
     "10": "Kleine Septime",
     "11": "Große Septime",
     "12": "Reine Oktave",
+    "13": "Kleine None",
+    "14": "Große None",
+    "15": "Kleine Dezime",
+    "16": "Große Dezime",
     "17": "Reine Undezime",
     "19": "Reine Duodezime",
     "24": "Reine Doppeloktave",
@@ -107,9 +135,9 @@
     "saving": "Fortschritt wird gespeichert…",
     "notSaved": "Dein Fortschritt ist noch nicht gespeichert.",
     "saved": "Dein Fortschritt ist auf diesem Gerät gespeichert.",
-    "unlocked": "Kapitel {{id}} freigeschaltet!",
-    "unlockMessage": "Mit deinen Sternen hast du einen weiteren Abschnitt freigeschaltet.",
-    "finish": "Du hast alle 100 Level geschafft! In der Übersicht kannst du Level wiederholen und weitere Sterne sammeln.",
+    "unlocked": "Levelpaket {{id}} freigeschaltet!",
+    "unlockMessage": "Deine gesammelten Sterne haben ein weiteres Levelpaket geöffnet.",
+    "finish": "Du hast das Ende aller 100 Level erreicht. Kehre zu den Paketen zurück, um deine Sterne zu verbessern.",
     "retry": "Level {{id}} wiederholen",
     "map": "Zurück zur Levelübersicht"
   },
@@ -128,10 +156,13 @@
   },
   "credits": {
     "description": "128 General-MIDI-Programme, mit FluidSynth aus dem offiziell bereitgestellten MS-Basic-SoundFont erzeugt. Die Instrumentenklänge sind für die Offline-Wiedergabe enthalten. Einige GM-Programme sind Geräuscheffekte; die Intervallübungen verwenden deshalb nur Instrumente mit klarer Tonhöhe.",
-    "originalNotice": "Originaler Lizenz- und Quellenhinweis (aus rechtlichen Gründen unverändert auf Englisch):"
+    "originalNotice": "Originaler Lizenz- und Quellenhinweis (aus rechtlichen Gründen unverändert auf Englisch):",
+    "page": "Seite {{current}} von {{total}}",
+    "previous": "← Zurück",
+    "next": "Weiter →"
   },
   "legalPages": {
-    "updated": "Stand: 26. Oktober 2026",
+    "updated": "Stand: 27. Oktober 2026",
     "responsible": "Anbieter und Verantwortlicher",
     "country": "Deutschland"
   },
@@ -158,7 +189,7 @@
     },
     "storage": {
       "title": "Spielstand, Sprache und Offline-Speicher",
-      "body": "Intervalify speichert Bestleistungen, Sterne und freigeschaltete Level lokal unter intervalify.progress.v1. Die Spracheinstellung wird getrennt unter intervalify.language.v1 gespeichert. Die Geräte- oder Browsersprache wird ausgelesen, um die anfängliche Sprache der Oberfläche festzulegen. Im Web speichert ein Service Worker außerdem Anwendungsdateien und Klänge für die Offline-Nutzung zwischen. Diese Funktionen stellen das Spiel bereit, merken sich Ihre Einstellungen und ermöglichen die Offline-Wiedergabe; Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Der Zugriff auf den Gerätespeicher für diese gewünschten Funktionen erfolgt auf Grundlage von § 25 Abs. 2 Nr. 2 TDDDG. Die Anwendung setzt keine Werbe- oder Analyse-Cookies. Lokale Daten bleiben gespeichert, bis Sie die App- oder Websitedaten löschen, die App deinstallieren oder der Browser die Daten entfernt. Beim Löschen geht auch Ihr Spielstand verloren. Eine Sicherung in der Cloud findet nicht statt."
+      "body": "Intervalify speichert Bestleistungen, Sterne und freigeschaltete Level lokal unter intervalify.progress.v1. Die Spracheinstellung wird getrennt unter intervalify.language.v1 gespeichert. Ihre Tutorial-Einstellung wird unter intervalify.tutorial.hidden.v1 gespeichert. Die Geräte- oder Browsersprache wird ausgelesen, um die anfängliche Sprache der Oberfläche festzulegen. Im Web speichert ein Service Worker außerdem Anwendungsdateien und Klänge für die Offline-Nutzung zwischen. Diese Funktionen stellen das Spiel bereit, merken sich Ihre Einstellungen und ermöglichen die Offline-Wiedergabe; Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Der Zugriff auf den Gerätespeicher für diese gewünschten Funktionen erfolgt auf Grundlage von § 25 Abs. 2 Nr. 2 TDDDG. Die Anwendung setzt keine Werbe- oder Analyse-Cookies. Lokale Daten bleiben gespeichert, bis Sie die App- oder Websitedaten löschen, die App deinstallieren oder der Browser die Daten entfernt. Beim Löschen geht auch Ihr Spielstand verloren. Eine Sicherung in der Cloud findet nicht statt."
     },
     "hosting": {
       "title": "Website-Hosting durch Cloudflare",
@@ -173,5 +204,29 @@
       "title": "Ihre Rechte",
       "body": "Soweit die gesetzlichen Voraussetzungen vorliegen, haben Sie Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Gegen eine Verarbeitung auf Grundlage berechtigter Interessen können Sie nach Art. 21 DSGVO Widerspruch einlegen; eine erteilte Einwilligung können Sie mit Wirkung für die Zukunft widerrufen. Wenden Sie sich dazu an den oben genannten Verantwortlichen. Sie können sich außerdem bei einer Datenschutzaufsichtsbehörde beschweren, insbesondere beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz. Lokale Spieldaten können Sie direkt in den Geräte- oder Browsereinstellungen löschen; der Anbieter kann diese nicht aus der Ferne abrufen."
     }
+  },
+  "packs": {
+    "title": "Level",
+    "pack": "Levelpaket {{id}}",
+    "back": "← Levelpakete",
+    "backToPack": "← Zurück zum Paket",
+    "instructions": "Wähle ein Paket. Sterne aus dem gesamten Spiel schalten weitere Pakete frei.",
+    "levelInstructions": "Mit einem Stern schaltest du das nächste Level frei.",
+    "stars": "★ {{count}} / 60 Sterne",
+    "range": "Level {{first}}–{{last}}",
+    "locked": "Gesperrt · Insgesamt {{required}} Sterne benötigt ({{earned}}/{{required}}).",
+    "label": "Levelpaket {{id}}, {{status}}",
+    "unavailable": "Dieses Levelpaket gibt es nicht.",
+    "counter": "{{earned}}/{{required}} ★"
+  },
+  "options": {
+    "title": "Optionen"
+  },
+  "tutorial": {
+    "title": "So funktioniert’s",
+    "dontShowAgain": "Nicht mehr anzeigen",
+    "start": "Level starten",
+    "saving": "Wird gespeichert…",
+    "saveError": "Deine Einstellung konnte nicht gespeichert werden. Versuche es erneut oder entferne das Häkchen, um ohne Speichern fortzufahren."
   }
 }

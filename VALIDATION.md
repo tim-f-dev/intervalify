@@ -58,3 +58,33 @@ Playback duration now starts after the browser's play promise resolves. Cancelli
 All 30 automated tests, TypeScript, ESLint, translation checks, level validation and asset verification pass. Seven regression cases cover cold loads, delayed seeks/buffering, cached zero-offset samples, cancellation, failures/timeouts, waiting for both notes, and delayed playback start. These simulate browser media events; they do not establish that the user's intermittent audible symptom has been reproduced on their device. A fresh-load listening check remains appropriate after deployment.
 
 Production verification: Android and iOS Hermes bundles and the web bundle exported successfully. The compiled web play route includes the new seek-gated driver, and the offline cache was regenerated.
+
+## Level-pack menus — 27 October 2026
+
+- Home now has one primary Play action leading to `/levels`, plus a smaller Options action. Options contains the persistent English/German selector and credits. Existing privacy/legal links remain at the bottom of home.
+- `/levels` shows five numbered packs, containing the unchanged level ranges 1–20, 21–40, 41–60, 61–80 and 81–100. `/packs/[id]` shows exactly four rows of five numbered tiles, with three stars below each number and lock indicators for unavailable levels.
+- Pack requirements are 0/30/60/90/120 total best stars. Sequential one-star level unlocks remain within each pack. Tests cover all exact boundaries, global rather than preceding-pack totals, replay deduplication, a complete 100-level run, and v1 save compatibility. Existing best scores/stars remain intact; access is recalculated with the new requirements.
+- TypeScript, ESLint, all 32 tests, translation/level/asset validation and Android/iOS/web production exports pass.
+- Browser QA: English and German home → Options → Credits → Options, language switching, home → Play → pack selection → pack grid → gameplay → results → pack grid. At 320×740 the grid contains 20 tiles in four rows of five with no horizontal overflow and all rows visible. Home layout also reviewed at 390 px width. No browser console errors observed during this review; physical Android/iOS runtime layout still needs device checks.
+
+## Fitted menus and contained scrolling — 27 October 2026
+
+- Replaced the shared page ScrollView with a bounded flex layout. Home, Options, level grids, Credits, gameplay and Results have no page-level scrollbars. Home and gameplay/results use compact or side-by-side arrangements on short screens.
+- Exactly three scrollbar exceptions: Privacy and Legal have internal vertical scroll containers; `/levels` has one horizontal pack carousel. Pack cards are square, requirements use counters such as 5/30 ★, and global star thresholds/level order/saved-progress format are unchanged.
+- Level grids adapt to the measured space. Browser checks at 320×568, 740×360 and 1280×800 found all 20 tiles visible, no control outside the viewport and no scroll container on the grid page. Observed arrangements were four columns/five rows, ten columns/two rows and five columns/four rows respectively.
+- The same screen-size checks passed for Home, Options, Credits, gameplay and Results. Credits uses readable pages of the original license notice, with word/character preservation verified by tests. Privacy/Legal were scrolled to their final sections while their page controls stayed fixed. The horizontal carousel was verified to scroll using the keyboard; its styled scrollbar track is visible in the final desktop preview.
+- TypeScript and ESLint pass. All 36 tests, translations, all 100 levels and audio-asset checks pass. Android/iOS/web production exports and the final web-only export succeed. Native layout is shared but physical-device UI testing remains outstanding.
+
+## First-level tutorial — 27 October 2026
+
+- Removed the listening instructions and volume/headphone tip from Home in both languages. They now appear in a short modal before the first unlocked level entered after an app launch/full web reload.
+- The exercise component is not mounted until tutorial preferences are hydrated and the dialog is dismissed, preventing hidden playback. Normal dismissal stays in memory for the app session, including retries and navigation; an explicit opt-out is saved separately under `intervalify.tutorial.hidden.v1`.
+- Six regression tests cover hydration before playback, session-only dismissal, persistent opt-out, untouched progress/language data, save failure/retry/continue-without-saving, duplicate submissions and invalid/unreadable preferences. All 42 tests, TypeScript, ESLint, translations, level checks and asset checks pass.
+- Browser QA on the existing port 8084: Home has neither removed text; first level opens the tutorial without exercise controls behind it; Start level opens gameplay; restarts and revisits do not repeat the tutorial; a full reload brings it back when not opted out. English and German dialogs fit small phone, landscape and desktop sizes. The native web checkbox toggles with Space and reports its checked state correctly. The preview is left unchecked, without saving an opt-out.
+- Android/iOS/web production exports pass. Privacy text documents the new local preference. No new preview ports were opened and no progress storage was cleared; existing offline-cache updates were activated by refreshing/reopening the same preview. Physical-device accessibility testing remains outstanding.
+
+## Progression revision
+
+The opening pack now enforces two-semitone minimum spacing across every eligible interval pair. Until pack three, one-semitone comparisons are limited to intervals 0–5. All first 50 lessons avoid fast playback and six-answer questions. Four final-pack lessons introduce minor/major ninths and tenths using slow, melodic, two-choice comparisons and validated sample ranges.
+
+All 45 tests pass, including curriculum constraints and compound playback/name checks. The level validator covers all 100 levels, 30,000 seeded questions and 9,112 exhaustive instrument/root/interval combinations. English and German level descriptions and compound interval names match. LEVEL_REORDER.md records all old/new positions; saved scores remain attached to existing numbered slots.

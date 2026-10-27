@@ -59,7 +59,7 @@ assert.deepEqual(errors, []);
 const instance = createLocalization();
 for (const language of ['en', 'de']) {
   const t = instance.getFixedT(language);
-  for (let semitones = 0; semitones <= 12; semitones++) assert.ok(!t(`intervals.${semitones}`).startsWith('intervals.'));
+  for (const semitones of new Set(levels.flatMap((level) => [...level.intervals]))) assert.ok(!t(`intervals.${semitones}`).startsWith('intervals.'), `${language}: missing interval ${semitones}`);
   for (const count of [0, 1, 2, 3]) assert.ok(!t('common.starCount', { count }).includes('{{'));
 }
 console.log('Validated en/de: matching keys and variables, 100 level titles/descriptions, 128 instruments, interval names, plural forms and screen text/accessibility scan.');

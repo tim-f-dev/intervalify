@@ -35,7 +35,7 @@ Expo Go serves development assets from Metro and is not the distributable offlin
 | `npm run docs:levels` | Refresh the design reference from the manually authored configurations |
 | `npm run export` | Production Android, iOS and web bundles in `dist/`, plus web offline cache |
 | `npm run export:web` | Web-only production export in `dist-web/`, plus offline cache |
-| `node scripts/serve-web.mjs dist` | Preview production web at http://127.0.0.1:8081 |
+| `node scripts/serve-web.mjs dist 8084` | Preview production web at http://127.0.0.1:8084 |
 | `npm run verify:audio` | Full audio decoding and representative pitch verification (Python tools required) |
 | `npx expo-doctor` | Expo dependency/configuration checks |
 
@@ -45,7 +45,7 @@ Exports use two Metro workers to limit peak memory. Exports are JavaScript/Herme
 
 Choose a level, listen and select an interval whenever you are ready, including during playback. Playback can be ascending, descending or simultaneous. Replay repeats the exact question and answer order without revealing the solution. One answer is accepted per question; feedback reveals the correct interval only after submission. Leaving a screen or backgrounding the app stops playback. An interrupted level restarts at question one; completed results persist.
 
-Stars: **5/10 = one**, **8/10 = two**, **10/10 = three**. Thresholds are configurable in `src/game/progress.ts`. Best scores and stars never decrease. Chapter 1 starts open; a later chapter needs 20 stars in its immediately preceding chapter. Its first level opens when that gate is met, even if some previous-chapter levels remain unfinished. Other levels open sequentially after one star in the preceding level within their chapter.
+Stars: **5/10 = one**, **8/10 = two**, **10/10 = three**. Thresholds are configurable in `src/game/progress.ts`. Best scores and stars never decrease. Pack 1 starts open. Packs 2–5 require 30, 60, 90 and 120 total stars across the game. Each pack contains the same 20 consecutive level IDs as before. Its first level opens when the total-star gate is met; later levels open sequentially after one star in the preceding level within that pack.
 
 Progress is stored using AsyncStorage under `intervalify.progress.v1`. The saved record includes best scores/stars, unlocked levels and chapter totals. Derived unlocks are recomputed on load to avoid stale state. Saves are serialized, storage failures are shown with a Retry action, and invalid saves are not silently overwritten. Clearing app/browser data removes progress. Results are local to each device/browser; there is no cloud sync.
 
@@ -123,7 +123,7 @@ The SDK-compatible dependency tree currently reports 8 npm audit findings (3 mod
 
 ## Languages
 
-The entire interface supports English and German, with automatic first-launch locale detection and a persistent home-screen language selector. All 100 level titles/instructions, interval names, instrument names, feedback and accessibility text are localized. Original third-party legal notices remain verbatim. See [LOCALIZATION.md](LOCALIZATION.md) for translation structure, validation and adding more languages.
+The entire interface supports English and German, with automatic first-launch locale detection and a persistent language selector in Options. All 100 level titles/instructions, interval names, instrument names, feedback and accessibility text are localized. Original third-party legal notices remain verbatim. See [LOCALIZATION.md](LOCALIZATION.md) for translation structure, validation and adding more languages.
 
 
 ## Cloudflare Workers deployment
@@ -147,3 +147,29 @@ If a push does not create a build entry, check the GitHub integration's reposito
 ### Web audio readiness
 
 `src/audio/service.web.ts` uses a browser media-element voice that waits for `seeked` and playable data before playing a note-bank slot. Do not replace that wait with checking `currentTime` or awaiting Expo's web `seekTo`: the requested position is visible before seeking actually completes. Native `service.ts` keeps the expo-audio driver. The shared player awaits actual playback start before timing note duration. Regression tests live in `tests/web-audio.test.ts` and `tests/audio.test.ts`.
+
+## Pack navigation and existing saves
+
+Home → Play → `/levels` lists five numbered packs; `/packs/[id]` adapts the grid to the available space (for example four columns on narrow phones, ten in landscape and five on desktop). Home → Options contains language settings and credits. Gameplay and results return to the current pack. All 100 level configurations and IDs remain unchanged.
+
+Version 1 save records and the storage key stay unchanged. The internal `chapters` field continues to hold pack summaries for compatibility, while unlocks are recomputed using `PACK_STAR_REQUIREMENTS`. Existing scores/stars are retained, even for a pack that falls below its new total-star requirement. Such a pack becomes available again once the required total is reached. Replaying a level never adds duplicate stars.
+
+## Viewport-fitted menus
+
+`Page` uses bounded flex views rather than a page-level ScrollView. Keep `flex: 1` and `minHeight: 0` through expandable content so it can fit phones, landscape windows and desktops. `useAvailableArea` measures the remaining space; `levelGridLayout` chooses square tiles that fit all 20 levels. Resizing changes layout only, not the current question or progress.
+
+Only three screens permit a scrollbar, inside their own containers: Privacy (`privacy-scroll`) and Legal (`legal-scroll`) scroll vertically; the pack carousel on `/levels` (`packs-scroll`) scrolls horizontally. Pack cards stay square and display compact star counters. `ScrollStyles.web.tsx` styles only these exceptions and locks the document viewport; native platforms retain their own indicators. Credits uses bounded pages instead of adding another scroll area; its original notice is retained in full and can be read with Previous/Next controls. Geometry and notice-pagination regression tests are in `tests/layout.test.ts`.
+
+## First-level tutorial
+
+Home no longer displays the listening instructions or headphone/volume tip. Both appear in the localized tutorial shown before the first unlocked level entered in each app session (a fresh app launch or full web reload). The tutorial must be dismissed before the exercise mounts or any audio starts. Later levels, retries, navigation and background/resume in the same session do not show it again.
+
+`TutorialSession` keeps the per-session dismissal flag in memory. Only an explicit “Don't show again” choice is saved through AsyncStorage, under `intervalify.tutorial.hidden.v1`, independently of scores and language. Preference hydration gates the exercise to prevent a cold-load playback race. If saving fails, the dialog stays open for retry or the user can uncheck the box and continue without saving. Native Back and web Escape dismiss the dialog using the current checkbox selection. Session, hydration, persistence and failure handling are covered in `tests/tutorial.test.ts`.
+
+Use the existing port 8084 for local previews. A production service-worker update waits for existing tabs to close before activation; refresh/reopen the preview to activate a new build rather than opening another port or clearing progress.
+
+## Local unlocked test preview
+
+Run `npm run export:test` to create an all-levels-unlocked web preview in `dist`. Reuse the existing localhost preview server on port 8084. The unlock flag exists only for that export command; normal `npm run export` and Cloudflare builds default to normal progression. The web flag additionally requires a loopback hostname, so intervalify.app keeps normal locks even if a test export is uploaded accidentally.
+
+Unlocks are an in-memory access override. No scores or stars are fabricated, and canonical derived unlocks are saved when a test level is completed. Real results earned while testing are saved normally. Run a normal export to return the local preview to normal progression.

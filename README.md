@@ -7,7 +7,7 @@ Intervalify is a musical ear-training game that helps you recognize the distance
 
 ## Made for everyday practice
 
-- **English and German**, with musical interval names in both languages.
+- **English and German**, with musical interval names in both languages. Change languages in Options.
 - **Varied instrument sounds** to help you recognize intervals across different tones and registers.
 - **Automatic progress saving** on the device and browser you use.
 - **Offline play** once the web app displays “Ready to play offline.”

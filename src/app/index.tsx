@@ -1,52 +1,40 @@
 import { Link, router } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Button, colors, Page, ui } from '../components/ui';
+import { useScreenLayout } from '../components/useLayout';
 import { useGame } from '../game/context';
-import { levels } from '../game/levels';
-import { chapterOf, STAR_THRESHOLDS } from '../game/progress';
+import { totalStars } from '../game/progress';
 import OfflineStatus from '../components/OfflineStatus';
-import LanguageSelector from '../components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
-
 
 export default function HomeScreen() {
   const { t } = useTranslation();
   const { progress } = useGame();
-  const next = progress.unlockedLevels.find((id) => !(progress.best[id]?.stars)) ?? progress.unlockedLevels.at(-1) ?? 1;
-  const total = progress.chapters.reduce((sum, chapter) => sum + chapter.stars, 0);
-  return <Page>
-    <LanguageSelector />
-    <View style={[ui.row, { justifyContent: 'space-between' }]}>
-      <Text style={ui.eyebrow}>{t('home.eyebrow')}</Text><Text style={ui.small}>{t('home.totalStars', { count: total })}</Text>
+  const { dense, landscape } = useScreenLayout();
+  return <Page compact>
+    <View style={[ui.row, { justifyContent: 'space-between', flexShrink: 0 }]}>
+      <Text style={[ui.eyebrow, { letterSpacing: 1, fontSize: 10 }]}>{t('home.eyebrow')}</Text>
+      <Text style={ui.small}>{t('home.totalStars', { count: totalStars(progress.best) })}</Text>
     </View>
-    <View style={styles.hero}>
-      <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={styles.notes}>
-        <Text style={styles.note}>♪</Text><Text style={styles.note}>♫</Text>
+    <View style={{ flex: 1, minHeight: 0, flexDirection: landscape ? 'row' : 'column', alignItems: 'center', justifyContent: 'center', gap: dense ? 12 : 24 }}>
+      <View style={{ flex: 1, minHeight: 0, width: '100%', alignItems: 'center', justifyContent: 'center', gap: dense ? 8 : 16 }}>
+        <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={{ width: dense ? 120 : 180, height: dense ? 56 : 90, borderRadius: 24, backgroundColor: colors.pale, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+          <Text style={{ fontSize: dense ? 38 : 52, color: colors.green }}>♪</Text><Text style={{ fontSize: dense ? 38 : 52, color: colors.green }}>♫</Text>
+        </View>
+        <Text role="heading" style={[ui.title, { fontSize: dense ? 38 : 52, textAlign: 'center' }]}>Intervalify</Text>
+        <Text style={[ui.body, { maxWidth: 430, textAlign: 'center', fontSize: dense ? 14 : 18, lineHeight: dense ? 20 : 26 }]}>{t('home.tagline')}</Text>
       </View>
-      <Text role="heading" style={[ui.title, styles.title]}>Intervalify</Text>
-      <Text style={[ui.body, { maxWidth: 430, textAlign: 'center', fontSize: 19 }]}>{t('home.tagline')}</Text>
+      <View style={{ flex: landscape ? 1 : undefined, width: landscape ? undefined : '100%', maxWidth: 480, gap: dense ? 8 : 16 }}>
+        <View style={[ui.card, { padding: dense ? 12 : 20, gap: 12 }]}>
+          <Button onPress={() => router.push('/levels')}><Text style={{ fontSize: 26 }}>{t('home.playMenu')}</Text></Button>
+        </View>
+        <View style={{ alignSelf: 'center', minWidth: 160 }}><Button secondary onPress={() => router.push('/options')}>{t('options.title')}</Button></View>
+      </View>
     </View>
-    <View style={ui.card}>
-      <Text style={ui.eyebrow}>{t('home.chapter', { id: chapterOf(next) })}</Text>
-      <Text style={ui.heading}>{t('common.levelTitle', { id: next, title: t(`${levels[next - 1].id}.title`, { ns: 'levels' }) })}</Text>
-      <Text style={ui.body}>{t('home.instructions')}</Text>
-      <Button onPress={() => router.push(`/play/${next}`)}>{t('home.play', { id: next })}</Button>
-      <Button secondary onPress={() => router.push('/levels')}>{t('home.explore')}</Button>
-    </View>
-    <View style={ui.row}><Text style={ui.small}>{t('home.questions')}</Text><Text style={ui.small}>{t('home.thresholds', { one: STAR_THRESHOLDS[0], two: STAR_THRESHOLDS[1], three: STAR_THRESHOLDS[2] })}</Text></View>
-    <Text style={ui.small}>{t('home.volume')}</Text>
-    <Button secondary onPress={() => router.push('/credits')}>{t('home.credits')}</Button>
     <OfflineStatus />
-    <View style={[ui.row, { justifyContent: 'center' }]}>
-      <Link href="/privacy" style={[ui.small, { paddingVertical: 12 }]}>{t('privacy.title')}</Link>
-      <Link href="/legal" style={[ui.small, { paddingVertical: 12 }]}>{t('legal.title')}</Link>
+    <View style={[ui.row, { justifyContent: 'center', flexShrink: 0 }]}>
+      <Link href="/privacy" style={[ui.small, { padding: 10 }]}>{t('privacy.title')}</Link>
+      <Link href="/legal" style={[ui.small, { padding: 10 }]}>{t('legal.title')}</Link>
     </View>
   </Page>;
 }
-
-const styles = StyleSheet.create({
-  hero: { alignItems: 'center', paddingVertical: 24, gap: 20 },
-  title: { fontSize: 52, textAlign: 'center' },
-  notes: { width: 180, height: 100, borderRadius: 32, backgroundColor: colors.pale, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12 },
-  note: { fontSize: 58, color: colors.green },
-});

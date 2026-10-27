@@ -1,49 +1,41 @@
 import { router } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button, colors, Page, Stars, ui } from '../components/ui';
-import { useGame } from '../game/context';
-import { levels } from '../game/levels';
-import { CHAPTER_STAR_REQUIREMENT } from '../game/progress';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { Button, colors, Page, ui } from '../components/ui';
+import { useAvailableArea } from '../components/useLayout';
+import { useGame } from '../game/context';
+import { PACK_STAR_REQUIREMENTS, totalStars } from '../game/progress';
 
-export default function LevelMap() {
+export default function LevelPacks() {
   const { t } = useTranslation();
   const { progress } = useGame();
-  return <Page>
-    <Button secondary onPress={() => router.replace('/')}>{t('nav.home')}</Button>
-    <Text style={ui.eyebrow}>{t('map.eyebrow')}</Text>
-    <Text role="heading" style={ui.title}>{t('map.title')}</Text>
-    <Text style={ui.body}>{t('map.instructions', { required: CHAPTER_STAR_REQUIREMENT })}</Text>
-    {progress.chapters.map((chapter, chapterIndex) => <View key={chapter.id} style={ui.card}>
-      <Text style={ui.eyebrow}>{t('map.chapterProgress', { id: chapter.id, count: chapter.stars })}</Text>
-      <Text role="heading" style={ui.heading}>{t(`chapters.${chapter.id}`)}</Text>
-      {!chapter.unlocked && <Text style={ui.body}>{t('map.chapterLocked', { required: CHAPTER_STAR_REQUIREMENT, previous: chapter.id - 1, earned: progress.chapters[chapterIndex - 1].stars })}</Text>}
-      <View style={styles.path}>
-        {levels.slice(chapterIndex * 20, chapterIndex * 20 + 20).map((level, index) => {
-          const unlocked = progress.unlockedLevels.includes(level.id);
-          const stars = progress.best[level.id]?.stars ?? 0;
-          return <View key={level.id} style={[styles.node, { transform: [{ translateX: [0, 28, 46, 28, 0, -28, -46, -28][index % 8] }] }]}>
-            {index > 0 && <View style={styles.connector} />}
-            <Pressable disabled={!unlocked} onPress={() => router.push(`/play/${level.id}`)}
-              accessibilityRole="button" accessibilityLabel={t('common.levelLabel', { id: level.id, title: t(`${level.id}.title`, { ns: 'levels' }), status: unlocked ? t('common.starCount', { count: stars }) : t('common.locked') })}
-              accessibilityState={{ disabled: !unlocked }}
-              style={({ pressed }) => [styles.circle, !unlocked && styles.locked, stars > 0 && styles.completed, pressed && { opacity: 0.7 }]}>
-              <Text style={[styles.number, !unlocked && { color: colors.muted }]}>{level.id}</Text>
-            </Pressable>
-            <Stars count={stars} /><Text style={[ui.small, { textAlign: 'center' }]}>{unlocked ? t(`${level.id}.title`, { ns: 'levels' }) : t('common.locked')}</Text>
-            {progress.best[level.id] && <Text style={ui.small}>{t('common.best', { score: progress.best[level.id].score })}</Text>}
-          </View>;
+  const { area, onLayout } = useAvailableArea();
+  const total = totalStars(progress.best);
+  const side = Math.max(80, Math.min(340, area.width * 0.82, area.height - 40));
+  return <Page compact>
+    <View style={[ui.row, { justifyContent: 'space-between' }]}>
+      <Button secondary onPress={() => router.replace('/')}>{t('nav.home')}</Button>
+      <Text style={ui.small}>{t('home.totalStars', { count: total })}</Text>
+    </View>
+    <Text role="heading" style={[ui.title, { fontSize: 30 }]}>{t('packs.title')}</Text>
+    <View onLayout={onLayout} style={{ flex: 1, minHeight: 0, borderRadius: 24, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.pale, overflow: 'hidden' }}>
+      <ScrollView nativeID="packs-scroll" horizontal showsHorizontalScrollIndicator showsVerticalScrollIndicator={false} bounces={false}
+        style={{ flex: 1 }} contentContainerStyle={{ alignItems: 'center', gap: 16, padding: 16 }}>
+        {progress.chapters.map((pack, index) => {
+          const required = PACK_STAR_REQUIREMENTS[index];
+          const status = pack.unlocked ? t('packs.stars', { count: pack.stars }) : t('packs.locked', { required, earned: total });
+          return <Pressable key={pack.id} disabled={!pack.unlocked} accessibilityRole="button"
+            accessibilityLabel={t('packs.label', { id: pack.id, status })} accessibilityState={{ disabled: !pack.unlocked }}
+            onPress={() => router.push(`/packs/${pack.id}`)}
+            style={({ pressed }) => [{ width: side, height: side, padding: 12, gap: 6, borderRadius: 24, borderWidth: 2, borderColor: pack.unlocked ? colors.green : colors.border, backgroundColor: colors.paper, alignItems: 'center', justifyContent: 'center' }, pressed && { opacity: 0.7 }]}>
+            <Text accessible={false} style={{ color: pack.unlocked ? colors.green : colors.muted, fontSize: Math.min(68, side * 0.22), fontWeight: '800' }}>{pack.id}</Text>
+            <Text style={{ color: colors.ink, fontSize: Math.min(24, Math.max(14, side * 0.075)), fontWeight: '700', textAlign: 'center' }}>{t('packs.pack', { id: pack.id })}</Text>
+            {side >= 180 && <Text style={ui.small}>{t('packs.range', { first: index * 20 + 1, last: index * 20 + 20 })}</Text>}
+            <Text style={{ color: pack.unlocked ? colors.gold : colors.muted, fontSize: Math.min(25, Math.max(15, side * 0.085)), fontWeight: '700' }}>{t('packs.counter', { earned: pack.unlocked ? pack.stars : total, required: pack.unlocked ? 60 : required })}</Text>
+            {!pack.unlocked && <Text accessible={false} style={{ position: 'absolute', top: 10, right: 10, fontSize: 18 }}>🔒</Text>}
+          </Pressable>;
         })}
-      </View>
-    </View>)}
+      </ScrollView>
+    </View>
   </Page>;
 }
-const styles = StyleSheet.create({
-  path: { alignItems: 'center', paddingVertical: 8 },
-  node: { alignItems: 'center', width: '100%', paddingTop: 20, gap: 5 },
-  circle: { height: 66, width: 66, borderRadius: 33, backgroundColor: colors.green, alignItems: 'center', justifyContent: 'center', borderWidth: 4, borderColor: '#C9DCC3' },
-  completed: { backgroundColor: '#B87915', borderColor: '#F1D696' },
-  locked: { backgroundColor: '#E4E8E0', borderColor: '#D6DCD2' },
-  number: { color: '#FFFFFF', fontSize: 23, fontWeight: '800' },
-  connector: { height: 18, width: 3, backgroundColor: colors.border, marginBottom: 2 },
-});

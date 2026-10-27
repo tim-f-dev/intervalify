@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { midiFrequency, semitoneDistance } from '../src/game/intervals';
 import { createQuestion, notesFor, submitAnswer, validateLevel } from '../src/game/questions';
-import { deriveProgress, parseProgress, ProgressStore, recordResult, starsFor } from '../src/game/progress';
+import { deriveProgress, parseProgress, ProgressStore, recordResult, starsFor, totalStars, type Best } from '../src/game/progress';
 import type { LevelConfig } from '../src/game/types';
 
 const level: LevelConfig = { id: 1, title: 'Test', instruments: [0, 24], intervals: [0, 2, 4, 5, 7, 12], choices: 4,
@@ -68,12 +68,12 @@ test('star thresholds and best results never regress', () => {
   const best = recordResult(deriveProgress({}), 1, 10);
   assert.deepEqual(recordResult(best, 1, 6).best[1], { score: 10, stars: 3 });
 });
-test('sequential levels and chapter gates use the immediately previous chapter', () => {
+test('levels remain sequential inside packs unlocked by total stars', () => {
   let progress = deriveProgress({});
   assert.deepEqual(progress.unlockedLevels, [1]);
   assert.ok(!recordResult(progress, 1, 4).unlockedLevels.includes(2));
   assert.ok(recordResult(progress, 1, 5).unlockedLevels.includes(2));
-  for (let id = 1; id <= 7; id++) progress = recordResult(progress, id, 10);
+  for (let id = 1; id <= 10; id++) progress = recordResult(progress, id, 10);
   assert.equal(progress.chapters[1].unlocked, true);
   assert.ok(progress.unlockedLevels.includes(21));
   assert.ok(!progress.unlockedLevels.includes(22));
@@ -110,9 +110,47 @@ test('a full 100-level run reaches all five chapters and 300 stars', () => {
   assert.equal(progress.unlockedLevels.length, 100);
   assert.deepEqual(progress.chapters.map((c) => c.stars), [60, 60, 60, 60, 60]);
 });
-test('exactly twenty preceding-chapter stars open a chapter, nineteen do not', () => {
-  const best = Object.fromEntries(Array.from({ length: 19 }, (_, i) => [i + 1, { score: 6, stars: 1 }]));
-  const progress = deriveProgress(best);
-  assert.equal(progress.chapters[1].unlocked, false);
-  assert.equal(recordResult(progress, 20, 6).chapters[1].unlocked, true);
+
+function bestWithStars(total: number): Record<number, Best> {
+  const best: Record<number, Best> = {};
+  for (let id = 1; total > 0; id++) {
+    const stars = Math.min(total, 3);
+    best[id] = { score: [0, 5, 8, 10][stars], stars };
+    total -= stars;
+  }
+  return best;
+}
+
+test('each pack opens at its exact total-star threshold, regardless of which pack earned them', () => {
+  for (const [pack, required] of [[2, 30], [3, 60], [4, 90], [5, 120]]) {
+    const before = deriveProgress(bestWithStars(required - 1));
+    assert.equal(before.chapters[pack - 1].unlocked, false);
+    assert.ok(!before.unlockedLevels.includes((pack - 1) * 20 + 1));
+    const after = deriveProgress(bestWithStars(required));
+    assert.equal(after.chapters[pack - 1].unlocked, true);
+    assert.ok(after.unlockedLevels.includes((pack - 1) * 20 + 1));
+    assert.ok(!after.unlockedLevels.includes((pack - 1) * 20 + 2));
+  }
+  const firstPackPerfect = deriveProgress(bestWithStars(60));
+  assert.equal(firstPackPerfect.chapters[1].stars, 0);
+  assert.equal(firstPackPerfect.chapters[2].unlocked, true);
+});
+
+test('replays count only best stars and can unlock another pack', () => {
+  const before = deriveProgress(bestWithStars(29));
+  const after = recordResult(before, 10, 10);
+  assert.equal(totalStars(after.best), 30);
+  assert.equal(after.chapters[1].unlocked, true);
+  assert.equal(totalStars(recordResult(after, 1, 10).best), 30);
+});
+
+test('legacy v1 saves retain every score and star while pack gates are recomputed', () => {
+  const best = Object.fromEntries(Array.from({ length: 20 }, (_, i) => [i + 1, { score: 5, stars: 1 }]));
+  best[21] = { score: 10, stars: 3 };
+  const loaded = parseProgress(JSON.stringify({ version: 1, best, unlockedLevels: [21, 22], chapters: [] }));
+  assert.deepEqual(loaded.best, best);
+  assert.equal(totalStars(loaded.best), 23);
+  assert.equal(loaded.chapters[1].unlocked, false);
+  assert.ok(!loaded.unlockedLevels.includes(21));
+  assert.deepEqual(parseProgress(JSON.stringify(loaded)), loaded);
 });

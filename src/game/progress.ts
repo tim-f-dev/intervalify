@@ -1,5 +1,5 @@
 export const STAR_THRESHOLDS = [5, 8, 10] as const;
-export const CHAPTER_STAR_REQUIREMENT = 20;
+export const PACK_STAR_REQUIREMENTS = [0, 30, 60, 90, 120] as const;
 export type Best = { score: number; stars: number };
 export type Progress = {
   version: 1;
@@ -11,13 +11,18 @@ export function starsFor(score: number, thresholds: readonly number[] = STAR_THR
   return thresholds.filter((threshold) => score >= threshold).length;
 }
 export function chapterOf(level: number) { return Math.ceil(level / 20); }
+export function totalStars(best: Record<number, Best>): number {
+  return Object.values(best).reduce((sum, result) => sum + result.stars, 0);
+}
 export function deriveProgress(best: Record<number, Best>): Progress {
+  const total = totalStars(best);
   const chapters = Array.from({ length: 5 }, (_, i) => ({
     id: i + 1,
     stars: Object.entries(best).reduce((sum, [id, result]) => sum + (chapterOf(Number(id)) === i + 1 ? result.stars : 0), 0),
     unlocked: false,
   }));
-  chapters.forEach((chapter, i) => { chapter.unlocked = i === 0 || (chapters[i - 1].unlocked && chapters[i - 1].stars >= CHAPTER_STAR_REQUIREMENT); });
+  // Preserve the v1 save shape and original level IDs; only derived pack gates change.
+  chapters.forEach((chapter, i) => { chapter.unlocked = total >= PACK_STAR_REQUIREMENTS[i]; });
   const unlockedLevels: number[] = [];
   for (let id = 1; id <= 100; id++) {
     const chapter = chapters[chapterOf(id) - 1];
