@@ -162,7 +162,7 @@
     },
     "hosting": {
       "title": "Website hosting with Cloudflare",
-      "body": "The web version is intended to be hosted through Cloudflare Pages, provided by Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. When you access the website, Cloudflare processes technical request data such as your IP address, requested URL, access time and browser/device information to deliver and protect the site. The legal basis is Article 6(1)(f) GDPR: the legitimate interest in secure and reliable delivery. Processing may take place outside the EU/EEA, including in the USA. Cloudflare describes international-transfer safeguards and its processing in the privacy policy linked below. Technical data retention depends on the hosting/security configuration and applicable Cloudflare terms; it is separate from your locally stored game progress.",
+      "body": "The web version is intended to be hosted through Cloudflare Workers, provided by Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. When you access the website, Cloudflare processes technical request data such as your IP address, requested URL, access time and browser/device information to deliver and protect the site. The legal basis is Article 6(1)(f) GDPR: the legitimate interest in secure and reliable delivery. Processing may take place outside the EU/EEA, including in the USA. Cloudflare describes international-transfer safeguards and its processing in the privacy policy linked below. Technical data retention depends on the hosting/security configuration and applicable Cloudflare terms; it is separate from your locally stored game progress.",
       "link": "Cloudflare privacy policy"
     },
     "contact": {

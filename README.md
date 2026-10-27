@@ -125,3 +125,21 @@ The SDK-compatible dependency tree currently reports 8 npm audit findings (3 mod
 
 The entire interface supports English and German, with automatic first-launch locale detection and a persistent home-screen language selector. All 100 level titles/instructions, interval names, instrument names, feedback and accessibility text are localized. Original third-party legal notices remain verbatim. See [LOCALIZATION.md](LOCALIZATION.md) for translation structure, validation and adding more languages.
 
+
+## Cloudflare Workers deployment
+
+This repository includes `wrangler.jsonc` for the existing `intervalify` Worker. It serves the web export as static assets, with SPA fallback for `/privacy`, `/legal`, `/play/1` and other Expo Router routes. No Worker backend script is needed.
+
+In Cloudflare > Workers & Pages > intervalify > Settings > Builds, use:
+
+- Git repository: `tim-f-dev/intervalify`
+- Production branch: `main`
+- Disable builds: off
+- Build command: `npm run export:web`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+- Node.js version: `24`
+
+Commit and push the configuration before building. The build command generates `dist-web/`, including the offline service worker; Wrangler uploads that directory. Do not commit generated build files. Existing domain configuration remains managed in Cloudflare.
+
+If a push does not create a build entry, check the GitHub integration's repository access and build trigger events separately. A missing build command causes a build/deploy problem; it does not explain a missing push-triggered build entry.

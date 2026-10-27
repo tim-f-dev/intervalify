@@ -11,6 +11,7 @@ artifacts/
 dist/
 dist-web/
 web-build/
+.wrangler/
 expo-env.d.ts
 
 # Native
