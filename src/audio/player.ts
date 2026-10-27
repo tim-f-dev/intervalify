@@ -10,7 +10,7 @@ export type IntervalSound = Readonly<{
 
 export interface Voice {
   ready(): Promise<void>;
-  play(): void;
+  play(): void | Promise<void>;
   fadeOut(): Promise<void>;
   dispose(): void;
   error(): string | null;
@@ -65,7 +65,8 @@ export class IntervalPlayer {
       };
       const duration = Math.max(180, Math.min(1200, sound.noteDurationMs));
       if (sound.playback === 'harmonic') {
-        local.forEach((v) => v.play());
+        await Promise.all(local.map((v) => v.play()));
+        if (!valid()) return;
         await this.delay(duration);
         if (!valid()) return;
         checkErrors();
@@ -74,7 +75,8 @@ export class IntervalPlayer {
         const gap = { slow: 280, normal: 130, fast: 35 }[sound.speed];
         for (const voice of local) {
           if (!valid()) return;
-          voice.play();
+          await voice.play();
+          if (!valid()) return;
           await this.delay(duration);
           if (!valid()) return;
           checkErrors();
@@ -110,7 +112,9 @@ export class IntervalPlayer {
     try {
       await voice.ready();
       if (token !== this.generation) return;
-      voice.play(); await this.delay(Math.max(180, Math.min(1200, duration)));
+      await voice.play();
+      if (token !== this.generation) return;
+      await this.delay(Math.max(180, Math.min(1200, duration)));
       if (token !== this.generation) return;
       if (voice.error()) throw new Error(voice.error()!);
       await voice.fadeOut();

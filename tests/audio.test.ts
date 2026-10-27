@@ -43,3 +43,22 @@ test('harmonic playback starts both ready voices in the same event-loop turn', a
   await player.play({ ...sound, playback: 'harmonic' });
   assert.deepEqual(events, ['ready 60', 'ready 67', 'play 60', 'play 67']);
 });
+
+test('a delayed browser play start does not consume the audible note duration', async () => {
+  let started!: () => void;
+  const audible = new Promise<void>((resolve) => { started = resolve; });
+  let fades = 0;
+  let disposed = 0;
+  const player = new IntervalPlayer({ initialize: async () => {}, create() {
+    return { ready: async () => {}, play: () => audible, fadeOut: async () => { fades++; },
+      dispose: () => { disposed++; }, error: () => null };
+  } });
+  const pending = player.playNote(0, 60, 180);
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 220));
+    assert.equal(fades, 0);
+    assert.equal(disposed, 0);
+    started(); await pending;
+    assert.equal(fades, 1);
+  } finally { started(); player.stop(); await pending; }
+});

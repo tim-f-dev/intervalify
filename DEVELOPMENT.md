@@ -143,3 +143,7 @@ In Cloudflare > Workers & Pages > intervalify > Settings > Builds, use:
 Commit and push the configuration before building. The build command generates `dist-web/`, including the offline service worker; Wrangler uploads that directory. Do not commit generated build files. Existing domain configuration remains managed in Cloudflare.
 
 If a push does not create a build entry, check the GitHub integration's repository access and build trigger events separately. A missing build command causes a build/deploy problem; it does not explain a missing push-triggered build entry.
+
+### Web audio readiness
+
+`src/audio/service.web.ts` uses a browser media-element voice that waits for `seeked` and playable data before playing a note-bank slot. Do not replace that wait with checking `currentTime` or awaiting Expo's web `seekTo`: the requested position is visible before seeking actually completes. Native `service.ts` keeps the expo-audio driver. The shared player awaits actual playback start before timing note duration. Regression tests live in `tests/web-audio.test.ts` and `tests/audio.test.ts`.

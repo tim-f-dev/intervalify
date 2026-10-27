@@ -48,3 +48,13 @@ On Android and iOS, install a standalone build, enable airplane mode, complete a
 - Expo Doctor: 19/20 checks pass; existing SDK 58 packages have available patch updates (expo, expo-asset, expo-audio, expo-constants, expo-linking, expo-router, expo-status-bar). These unrelated patches were not applied as part of localization.
 - Original third-party license/attribution notices remain verbatim in English, with translated explanatory text. No application UI or level text is intentionally untranslated; Intervalify and language autonyms retain their names.
 - Localized preview is served at http://127.0.0.1:8082 to isolate QA progress from the existing 8081 origin. The preview script accepts an optional third argument for the port.
+
+## Startup audio seek correction — 27 October 2026
+
+The installed Expo SDK 58 web player resolves `seekTo` immediately after assigning the media element's `currentTime`; it does not await the browser's `seeked` event. Since samples occupy separate positions in a shared bank, the web driver now explicitly waits for metadata, seek completion at the requested offset, and playable data before allowing either voice to start. It uses the same audio banks, offsets, volume and fade behavior. Native playback continues to use expo-audio.
+
+Playback duration now starts after the browser's play promise resolves. Cancelling a pending load/seek removes event listeners and releases its audio element; errors and timeouts fail without starting an unprepared note.
+
+All 30 automated tests, TypeScript, ESLint, translation checks, level validation and asset verification pass. Seven regression cases cover cold loads, delayed seeks/buffering, cached zero-offset samples, cancellation, failures/timeouts, waiting for both notes, and delayed playback start. These simulate browser media events; they do not establish that the user's intermittent audible symptom has been reproduced on their device. A fresh-load listening check remains appropriate after deployment.
+
+Production verification: Android and iOS Hermes bundles and the web bundle exported successfully. The compiled web play route includes the new seek-gated driver, and the offline cache was regenerated.
