@@ -7,16 +7,27 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "ExpoLocalization_supportsRTL": false,
+        "CFBundleLocalizations": [
+          "en",
+          "de"
+        ]
+      }
     },
     "android": {
+      "package": "app.listn.mobile",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -34,7 +45,17 @@
         }
       ],
       "expo-asset",
-      ["expo-localization", { "supportedLocales": ["en", "de"], "supportsRTL": false, "forcesRTL": false }]
+      [
+        "expo-localization",
+        {
+          "supportedLocales": [
+            "en",
+            "de"
+          ],
+          "supportsRTL": false,
+          "forcesRTL": false
+        }
+      ]
     ],
     "platforms": [
       "android",
@@ -43,6 +64,18 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "supportsRTL": false,
+      "forcesRTL": false,
+      "eas": {
+        "projectId": "6258989a-ef42-4979-820d-2269733869c0"
+      }
     }
   }
 }
