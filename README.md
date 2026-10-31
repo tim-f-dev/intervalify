@@ -1,8 +1,8 @@
-# Intervalify
+# Listn
 
-Intervalify is a musical ear-training game that helps you recognize the distance between two notes. Listen, choose an interval, and build familiarity with each sound through short, repeatable levels.
+Listn is a musical ear-training game that helps you recognize the distance between two notes. Listen, choose an interval, and build familiarity with each sound through short, repeatable levels.
 
-[Play Intervalify](https://intervalify.app/)
+[Play Listn](https://intervalify.app/)
 
 
 ## Made for everyday practice
